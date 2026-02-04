@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרב אלדר לוי | מועמד לרבנות העיר ערד</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0f2c4d; /* כחול מלכותי עמוק */
+            --accent-gold: #cfb575;   /* זהב יוקרתי */
+            --light-gold: #f4ecd8;
+            --text-dark: #222;
+            --text-gray: #555;
+            --white: #ffffff;
+            --section-bg: #f9fbfd;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Heebo', sans-serif; 
+            color: var(--text-dark); 
+            line-height: 1.65; 
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER --- */
+        header { 
+            background: rgba(15, 44, 77, 0.98); 
+            color: var(--white); 
+            padding: 15px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+        .nav-container {
+            max-width: 1200px; margin: auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-family: 'Frank Ruhl Libre', serif; font-size: 1.4rem; font-weight: bold; letter-spacing: 0.5px; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: var(--accent-gold); text-decoration: none; font-weight: 600; transition: 0.3s; font-size: 1rem; }
+        .nav-links a:hover { color: var(--white); }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            height: 90vh; 
+            background: linear-gradient(180deg, rgba(15,44,77,0.7) 0%, rgba(15,44,77,0.95) 100%), 
+                        url('https://drive.google.com/thumbnail?id=1-n8RY9mX0jsxlf_-FETgJrr0yRXYbSc6&sz=w1600'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; color: var(--white); padding: 20px;
+        }
+        .hero h1 { 
+            font-family: 'Frank Ruhl Libre', serif; 
+            font-size: clamp(3.5rem, 8vw, 5.5rem); 
+            line-height: 1.1; margin-bottom: 15px; 
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            animation: fadeUp 1s ease-out;
+        }
+        .hero p { 
+            font-size: clamp(1.2rem, 3vw, 1.6rem); 
+            color: var(--accent-gold); margin-bottom: 40px; font-weight: 300; max-width: 800px;
+            animation: fadeUp 1.2s ease-out;
+        }
+        .hero-btn {
+            background: var(--accent-gold); color: var(--primary-blue);
+            padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(207, 181, 117, 0.3); transition: transform 0.3s;
+            animation: fadeUp 1.4s ease-out;
+        }
+        .hero-btn:hover { transform: translateY(-5px); background: var(--white); }
+
+        /* --- BADGES BAR --- */
+        .badges-bar {
+            background: var(--white); padding: 40px 20px; margin-top: -50px; 
+            position: relative; z-index: 10; border-radius: 15px 15px 0 0;
+            max-width: 1100px; margin-left: auto; margin-right: auto;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center;
+        }
+        .badge-item { flex: 1; min-width: 200px; }
+        .badge-icon { font-size: 2rem; color: var(--accent-gold); margin-bottom: 10px; }
+        .badge-title { font-weight: 800; color: var(--primary-blue); font-size: 1.2rem; }
+        .badge-desc { font-size: 0.95rem; color: var(--text-gray); }
+
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        .section-title { 
+            font-family: 'Frank Ruhl Libre', serif; font-size: 2.8rem; color: var(--primary-blue); 
+            text-align: center; margin-bottom: 15px; 
+        }
+        .section-subtitle { text-align: center; color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 50px; font-weight: 600; }
+        
+        /* --- ABOUT (SPLIT LAYOUT) --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text { font-size: 1.15rem; color: #444; }
+        .about-text strong { color: var(--primary-blue); }
+        .about-img-frame { 
+            position: relative; border-radius: 20px; overflow: hidden; 
+            box-shadow: 20px 20px 0 var(--accent-gold);
+        }
+        .about-img-frame img { width: 100%; display: block; }
+
+        /* --- VIDEO SECTION --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 5px solid var(--white);
+            margin-bottom: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-desc { text-align: center; max-width: 800px; margin: auto; font-size: 1.1rem; color: #555; }
+
+        /* --- VISION CARDS --- */
+        .vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .vision-card { 
+            background: var(--white); padding: 40px; border-radius: 15px; 
+            border: 1px solid #eee; text-align: center; transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .vision-card:hover { transform: translateY(-10px); border-color: var(--accent-gold); }
+        .v-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        
+        /* --- BOOKS SECTION --- */
+        .books-section { background: var(--section-bg); border-radius: 20px; padding: 60px; text-align: center; margin-bottom: 60px; }
+        .books-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+        .book-tag { 
+            background: var(--primary-blue); color: var(--white); padding: 10px 25px; 
+            border-radius: 50px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(15, 44, 77, 0.2);
+        }
+
+        /* --- GALLERY GRID --- */
+        .gallery-wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .g-item { height: 320px; position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; }
+        .g-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .g-item:hover img { transform: scale(1.1); }
+        .g-caption { 
+            position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white; padding: 20px; font-weight: 600;
+        }
+
+        /* --- CERTIFICATES --- */
+        .docs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .doc-btn { 
+            display: block; background: transparent; border: 2px solid var(--primary-blue); color: var(--primary-blue); 
+            padding: 15px; text-align: center; text-decoration: none; font-weight: 700; border-radius: 10px; transition: 0.3s;
+        }
+        .doc-btn:hover { background: var(--primary-blue); color: white; }
+
+        /* --- FAQ --- */
+        .faq-item { border-bottom: 1px solid #ddd; padding: 20px 0; }
+        .faq-q { font-size: 1.25rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 10px; }
+        .faq-a { color: #666; border-right: 4px solid var(--accent-gold); padding-right: 15px; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 60px 20px; margin-top: 60px; }
+        .footer-cta { font-size: 1.5rem; margin-bottom: 20px; font-family: 'Frank Ruhl Libre'; }
+        
+        /* WHATSAPP FLOAT */
+        .whatsapp-float { 
+            position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; 
+            width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 9999; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* ANIMATION */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* MOBILE TWEAKS */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* במובייל מסתירים תפריט עליון למראה נקי */
+            .about-grid { grid-template-columns: 1fr; }
+            .about-img-frame { box-shadow: 10px 10px 0 var(--accent-gold); margin-top: 20px; }
+            .hero h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">הרב אלדר לוי | רבנות ערד</div>
+        <div class="nav-links">
+            <a href="#about">אודות</a>
+            <a href="#video">פרופיל</a>
+            <a href="#vision">חזון</a>
+            <a href="#docs">תעודות</a>
+            <a href="#contact">צור קשר</a>
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>הרב אלדר לוי</h1>
+    <p>דיין "ידין ידין" • לוחם שריון (188) • בן העיר ערד<br>מנהיגות של חיבור, מסורת ואהבת ישראל</p>
+    <a href="#vision" class="hero-btn">לצפייה בתוכנית העבודה</a>
+</div>
+
+<div class="badges-bar">
+    <div class="badge-item">
+        <div class="badge-icon">⚖️</div>
+        <div class="badge-title">דיין מוסמך</div>
+        <div class="badge-desc">כושר "ידין ידין" מהרבנות הראשית</div>
+    </div>
+    <div class="badge-item">
+        <div class="badge-icon">🛡️</div>
+        <div class="badge-title">מפקד ולוחם</div>
+        <div class="badge-desc">מפקד טנק בחטיבה 188</div>
+    </div>
+    <div class="badge-item">
+        <div class="badge-icon">🏘️</div>
+        <div class="badge-title">בן ערד</div>
+        <div class="badge-desc">בוגר "אבישור" ו"אורט"</div>
+    </div>
+</div>
+
+<section id="about">
+    <div class="section-title">הסיפור האישי</div>
+    <div class="section-subtitle">מבית הספר בערד ועד לכס הדיינות</div>
+    
+    <div class="about-grid">
+        <div class="about-text">
+            <p>ערד היא תבנית נוף מולדתי. כאן נולדתי, כאן התחנכתי בבתי הספר <strong>"אבישור" ו"אורט"</strong>, וכאן ספגתי את ערכי הרעות והקהילה.</p>
+            <br>
+            <p>כשעליתי על המדים ושירתתי כלוחם ומפקד טנק ב<strong>חטיבה 188</strong>, למדתי שאחריות היא מעל הכל. בטנק, כמו בחיים, אין חילוני או דתי – יש גורל משותף. את אותה רוח אני מביא לעולם הרבנות.</p>
+            <br>
+            <p>לאחר שנים של לימוד מעמיק והסמכה לרבנות ולדיינות ("ידין ידין"), אני מבקש לשרת אתכם. להנגיש את היהדות בדרכי נועם, לחבר בין קהילות ולדאוג ששירותי הדת בעיר יהיו המצוינים ביותר.</p>
+        </div>
+        <div class="about-img-frame">
+            <img src="https://drive.google.com/thumbnail?id=14d9ipjFrbmOhx2PcBTrZ2Lk7HY9Mkt_2&sz=w800" alt="הרב אלדר לוי במדים">
+        </div>
+    </div>
+</section>
+
+<section id="video" style="background-color: var(--section-bg); border-radius: 20px;">
+    <div class="section-title">צפו: הפרופיל המלא</div>
+    <div class="section-subtitle">ניתוח מעמיק של העשייה, הדיינות והמנהיגות</div>
+    
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/sTTKgpCdMkc?si=Ggou0oS5h9aaYHGz" title="פרופיל המועמד" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="video-desc">
+        <p><strong>"איש רב פעלים"</strong> - סקירה המציגה את השילוב הייחודי: דיין בבית הדין, מפקד בשריון, סופר סתם, שוחט ומנהיג קהילה. האזינו לניתוח הדמות של מי שבא לעבוד בשביל ערד.</p>
+    </div>
+</section>
+
+<section id="vision">
+    <div class="section-title">חזון לרבנות ערד</div>
+    <div class="section-subtitle">כך תיראה הרבנות תחת הנהגתי</div>
+    
+    <div class="vision-grid">
+        <div class="vision-card">
+            <div class="v-icon">📱</div>
+            <h3>רבנות דיגיטלית</h3>
+            <p>רישום לנישואין, בירורי כשרות ושאלות לרב – הכל מהנייד, בשקיפות מלאה ובמהירות.</p>
+        </div>
+        <div class="vision-card">
+            <div class="v-icon">🏠</div>
+            <h3>מרכז "שלום בית"</h3>
+            <p>הקמת מרכז גישור עירוני, בחינם, ליישוב סכסוכים ומניעת גירושין, מתוך ניסיוני כדיין.</p>
+        </div>
+        <div class="vision-card">
+            <div class="v-icon">🇮🇱</div>
+            <h3>ציונות ומסורת</h3>
+            <p>חיבור הנוער למורשת דרך פעילות חווייתית בבתי הספר, ברוח ציונית ומחברת.</p>
+        </div>
+    </div>
+</section>
+
+<section id="books">
+    <div class="books-section">
+        <h2 style="font-family: 'Frank Ruhl Libre'; font-size: 2.2rem; margin-bottom: 20px;">יצירה תורנית ענפה</h2>
+        <p>במהלך השנים זכיתי לחבר סדרת ספרים שזכתה להסכמות גדולי הדור:</p>
+        <div class="books-list">
+            <span class="book-tag">עולה מן המדבר</span>
+            <span class="book-tag">ברית תפארתך</span>
+            <span class="book-tag">זהרי נדה</span>
+            <span class="book-tag">יורו משפטיך</span>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="section-title">גלריית עשייה</div>
+    <div class="section-subtitle">תמונות מהשטח ומבית המדרש</div>
+    
+    <div class="gallery-wrapper">
+        <div class="g-item">
+            <img src="https://drive.google.com/thumbnail?id=1-6PMn8TEq-PYNK7nGIKo_ZLTIAgG5uhB&sz=w800" alt="עם הרב יצחק יוסף">
+            <div class="g-caption">עם הראשל"צ הרב יצחק יוסף</div>
+        </div>
+        <div class="g-item">
+            <img src="https://drive.google.com/thumbnail?id=175UZJkufzUzIk94LAyv5ELjWbXe38Jtp&sz=w800" alt="שירות מילואים">
+            <div class="g-caption">בשירות מילואים פעיל</div>
+        </div>
+        <div class="g-item">
+            <img src="https://drive.google.com/thumbnail?id=1ulXSB3ypQc8fnMu8RfhcigpDRPFgWRo3&sz=w800" alt="בבית המדרש">
+            <div class="g-caption">מעביר שיעור תורה</div>
+        </div>
+        <div class="g-item">
+            <img src="https://drive.google.com/thumbnail?id=1H9_BPOff-7ikOVe9imqeMx57UwQivHFc&sz=w800" alt="מפגש עם תושבים">
+            <div class="g-caption">מפגש חם עם תושבי העיר</div>
+        </div>
+    </div>
+</section>
+
+<section id="docs">
+    <div class="section-title">אסמכתאות ואישורים</div>
+    <div class="section-subtitle">שקיפות ומקצועיות מעל הכל</div>
+    
+    <div class="docs-grid">
+        <a href="https://drive.google.com/file/d/1SW2vdBkFStO2sgsYimJPRRikDW0yzPBh/view?usp=sharing" target="_blank" class="doc-btn">
+            📜 צפה בתעודת "ידין ידין"
+        </a>
+        <a href="https://drive.google.com/file/d/1VAP-VKkMs8_kBZjJACOqsn3eaZsKU6H3/view?usp=sharing" target="_blank" class="doc-btn">
+            ✍️ הסכמת הראשל"צ הגר"י יוסף
+        </a>
+        <a href="https://drive.google.com/file/d/1_5XeRXMjrWoXpx2LrWcjMW-UVSQMtJlY/view?usp=sharing" target="_blank" class="doc-btn">
+            ⚖️ אישור נשיא ביהמ"ש המחוזי
+        </a>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="section-title">שאלות ותשובות</div>
+    
+    <div class="faq-item">
+        <div class="faq-q">איך הרב רואה את היחסים בין דתיים לחילונים בערד?</div>
+        <div class="faq-a">"כמי שגדל כאן ולמד במוסדות הכלליים, אני לא רואה חומות. אני רואה שכנים ואחים. תפקידי הוא למצוא את המאחד, לכבד כל אדם באשר הוא, ולהפוך את הדת לגורם מאיר ומקרב ולא לגורם מפלג."</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">האם תהיה קבלת קהל לתושבים?</div>
+        <div class="faq-a">"בוודאי. דלתי תהיה פתוחה באופן קבוע. כל תושב יוכל להגיע לייעוץ, לברכה, או לגישור ושלום בית, בדיסקרטיות ובמאור פנים."</div>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="footer-cta">הרב אלדר לוי - רבנות של אחדות</div>
+    <p>אני כאן עבורכם לכל שאלה ועניין.</p>
+    <br>
+    <p style="font-size: 1.2rem; color: var(--accent-gold);">052-821-9928</p>
+    <p>Tifarteha@gmail.com | ערד, ישראל</p>
+    <br>
+    <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 RavArad.co.il | נבנה באהבה למען ערד</p>
+</footer>
+
+<a href="https://wa.me/972528219928" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i> 💬
+</a>
+
+</body>
+</html>
