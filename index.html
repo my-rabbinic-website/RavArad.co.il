@@ -3,386 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הרב אלדר לוי | מנהיגות של חיבור ושלום - ערד</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <title>הרב אלדר לוי | תפארתה של ערד - מנהיגות של תורה וחסד</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root { 
-            --gold-primary: #c5a059;
-            --gold-dark: #8e6d2d;
+            --royal-gold: #c5a059;
+            --gold-light: #f4e4c1;
             --gold-shimmer: linear-gradient(135deg, #8e6d2d 0%, #c5a059 30%, #f4e4c1 50%, #c5a059 70%, #8e6d2d 100%);
-            --royal-blue: #0a192f;
-            --deep-black: #02060c;
-            --white-silk: #fdfdfd;
-            --text-gold: #e8d1a7;
-            --border-style: 2px solid #c5a059;
+            --deep-navy: #0a192f;
+            --midnight-blue: #050a14;
+            --silk-white: #fafafa;
+            --text-dark: #1a1a1a;
+            --shadow-premium: 0 20px 50px rgba(0,0,0,0.15);
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Assistant', sans-serif; margin: 0; background: #fafafa; color: #1a1a1a; overflow-x: hidden; line-height: 1.8; }
+        
+        body { 
+            font-family: 'Assistant', sans-serif; 
+            margin: 0; 
+            background: var(--silk-white); 
+            color: var(--text-dark); 
+            overflow-x: hidden; 
+            line-height: 1.8;
+        }
 
-        /* Premium Navigation Bar */
+        h1, h2, h3, h4 { font-family: 'Frank Ruhl Libre', serif; letter-spacing: -0.5px; }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--midnight-blue); }
+        ::-webkit-scrollbar-thumb { background: var(--royal-gold); border-radius: 5px; }
+
+        /* --- Navigation --- */
         .nav-royal {
-            background: rgba(10, 25, 47, 0.98);
-            border-bottom: 3px solid var(--gold-primary);
-            padding: 15px 50px;
+            background: rgba(5, 10, 20, 0.98);
+            border-bottom: 2px solid var(--royal-gold);
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 9999;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 10000;
+            backdrop-filter: blur(15px);
         }
-        .nav-logo { font-family: 'Frank Ruhl Libre', serif; color: var(--gold-primary); font-size: 1.8rem; font-weight: 900; }
-        .nav-links a { color: white; text-decoration: none; margin-right: 30px; font-weight: 600; transition: 0.3s; font-size: 1.1rem; }
-        .nav-links a:hover { color: var(--gold-primary); }
 
-        /* Hero - Cinematic Scale */
-        .hero-cinema {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.85)), url('https://lh3.googleusercontent.com/d/1-n8RY9mX0jsxlf_-FETgJrr0yRXYbSc6');
+        .nav-logo { display: flex; align-items: center; gap: 15px; }
+        .logo-symbol { 
+            width: 50px; height: 50px; background: var(--gold-shimmer); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--deep-navy); font-size: 1.5rem;
+        }
+        .logo-text { color: var(--royal-gold); font-weight: 900; font-size: 1.4rem; line-height: 1; }
+        .logo-text span { display: block; font-size: 0.8rem; color: white; font-weight: 300; margin-top: 4px; }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--royal-gold); }
+
+        /* --- Hero Section --- */
+        .hero-premium {
+            height: 95vh;
+            background: linear-gradient(rgba(5, 10, 20, 0.45), rgba(5, 10, 20, 0.85)), 
+                        url('https://drive.google.com/uc?export=view&id=1V9wPZOO-ADYOmEAQ28NdBzFTaGlT9cBs');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
+            text-align: center;
             color: white;
-            position: relative;
-            text-align: center;
-        }
-        .hero-cinema::after {
-            content: "";
-            position: absolute;
-            bottom: 0; width: 100%; height: 150px;
-            background: linear-gradient(to top, #fafafa, transparent);
-        }
-        .hero-title {
-            font-family: 'Frank Ruhl Libre', serif;
-            font-size: clamp(4.5rem, 12vw, 10rem);
-            font-weight: 900;
-            margin: 0;
-            background: var(--gold-shimmer);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));
-        }
-        .hero-subtext {
-            font-family: 'Frank Ruhl Libre', serif;
-            font-size: 2.5rem;
-            color: var(--white-silk);
-            margin-top: 20px;
-            font-weight: 300;
+            padding: 0 20px;
         }
 
-        /* Letter Section - From the PDF */
-        .letter-section {
-            padding: 150px 20px;
-            background: white;
-            position: relative;
-        }
-        .letter-container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 80px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.05);
-            border: 1px solid #f0f0f0;
-            position: relative;
-        }
-        .letter-container::before {
-            content: "״";
-            position: absolute;
-            top: -40px; right: 40px;
-            font-size: 15rem;
-            color: var(--gold-light);
-            opacity: 0.2;
-            font-family: 'Frank Ruhl Libre', serif;
-        }
-        .letter-header {
-            font-family: 'Frank Ruhl Libre', serif;
-            font-size: 2.8rem;
-            color: var(--gold-dark);
-            margin-bottom: 40px;
-            text-align: center;
-            font-weight: 800;
-        }
-        .letter-body {
-            font-size: 1.4rem;
-            color: #333;
-            line-height: 2.2;
-            text-align: justify;
-        }
+        .hero-content { max-width: 1000px; animation: fadeIn 2s ease; }
+        .hero-tag { font-family: 'Frank Ruhl Libre', serif; font-size: 2rem; color: var(--gold-light); letter-spacing: 3px; margin-bottom: 10px; }
+        .hero-title { font-size: clamp(3.5rem, 10vw, 7.5rem); font-weight: 900; margin: 0; line-height: 1; background: var(--gold-shimmer); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtitle { font-size: 1.8rem; font-weight: 300; margin-top: 20px; color: #fff; }
 
-        /* Luxury Cards Grid */
-        .luxury-grid {
+        /* --- Quick Stats --- */
+        .stats-royal {
+            background: var(--deep-navy);
+            padding: 60px 10%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
-            padding: 100px 50px;
-        }
-        .luxury-card {
-            background: white;
-            padding: 60px 40px;
-            border-top: 5px solid var(--gold-primary);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
-            transition: 0.5s;
-            position: relative;
-        }
-        .luxury-card:hover { transform: translateY(-15px); box-shadow: 0 30px 80px rgba(197, 160, 89, 0.2); }
-        .card-icon { font-size: 3.5rem; color: var(--gold-primary); margin-bottom: 25px; display: block; }
-        .luxury-card h3 { font-family: 'Frank Ruhl Libre', serif; font-size: 2.2rem; margin: 0 0 20px 0; color: var(--royal-blue); }
-
-        /* The Gold Banner */
-        .gold-banner {
-            background: var(--gold-shimmer);
-            padding: 100px 20px;
             text-align: center;
-            color: var(--royal-blue);
+            border-bottom: 5px solid var(--royal-gold);
         }
-        .gold-banner h2 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; font-family: 'Frank Ruhl Libre', serif; border: none; }
-        .gold-banner p { font-size: 1.6rem; font-weight: 700; max-width: 800px; margin: auto; }
+        .stat-box i { font-size: 3rem; color: var(--royal-gold); margin-bottom: 15px; display: block; }
+        .stat-box h3 { color: white; font-size: 1.8rem; margin: 5px 0; }
+        .stat-box p { color: var(--gold-light); opacity: 0.8; font-size: 1rem; }
 
-        /* Gallery Overlay Style */
-        .gallery-container { padding: 100px 50px; background: var(--deep-black); color: white; }
-        .gallery-grid-new {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .gallery-item-premium {
-            height: 500px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-        }
-        .gallery-item-premium img { width: 100%; height: 100%; object-fit: cover; transition: 1s; }
-        .gallery-item-premium:hover img { transform: scale(1.1); filter: brightness(0.7); }
-        .gallery-overlay {
-            position: absolute;
-            bottom: -100%; left: 0; width: 100%;
-            background: linear-gradient(transparent, rgba(142, 109, 45, 0.9));
-            padding: 40px;
-            transition: 0.5s;
-            text-align: center;
-        }
-        .gallery-item-premium:hover .gallery-overlay { bottom: 0; }
+        /* --- Content Blocks --- */
+        .section-lux { padding: 120px 10%; }
+        .title-gold-center { text-align: center; margin-bottom: 80px; }
+        .title-gold-center h2 { font-size: clamp(2.5rem, 6vw, 4rem); color: var(--deep-navy); position: relative; display: inline-block; }
+        .title-gold-center h2::after { content: ''; display: block; width: 60%; height: 4px; background: var(--gold-shimmer); margin: 15px auto; }
 
-        /* Contact Section Luxury */
-        .contact-luxury {
-            background: var(--white-silk);
-            padding: 150px 50px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-            align-items: center;
+        .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+        .about-image { 
+            position: relative; border: 10px solid white; box-shadow: var(--shadow-premium); border-radius: 4px; overflow: hidden;
         }
-        .contact-form-box {
-            background: white;
-            padding: 60px;
-            border: 1px solid var(--gold-primary);
-            box-shadow: 20px 20px 0 var(--gold-light);
-        }
+        .about-image img { width: 100%; display: block; transition: 0.5s; }
+        .about-image:hover img { transform: scale(1.05); }
 
-        /* Footer Royal */
+        .rich-text { font-size: 1.4rem; color: #333; line-height: 2; }
+        .rich-text strong { color: var(--royal-gold); font-size: 1.6rem; }
+
+        /* --- Testimonials --- */
+        .praise-lux-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+        .praise-card {
+            background: white; padding: 50px; border-radius: 15px; box-shadow: var(--shadow-premium);
+            border-right: 10px solid var(--royal-gold); position: relative;
+        }
+        .praise-card i.quote-mark { position: absolute; top: 25px; left: 25px; font-size: 3rem; color: rgba(197, 160, 89, 0.1); }
+        .praise-text { font-size: 1.25rem; font-style: italic; color: #555; margin-bottom: 25px; }
+        .praise-author { font-weight: 800; color: var(--deep-navy); font-size: 1.3rem; }
+
+        /* --- Vision Cards --- */
+        .vision-flex { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+        .vision-item {
+            flex: 1; min-width: 300px; background: var(--deep-navy); padding: 50px 30px;
+            color: white; border-radius: 10px; border: 1px solid rgba(197, 160, 89, 0.2);
+            text-align: center; transition: 0.4s;
+        }
+        .vision-item:hover { transform: translateY(-15px); border-color: var(--royal-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+        .vision-item i { font-size: 3.5rem; color: var(--royal-gold); margin-bottom: 20px; display: block; }
+        .vision-item h4 { font-size: 1.8rem; margin-bottom: 15px; }
+
+        /* --- Contact Form --- */
+        .contact-lux-box {
+            background: white; border-radius: 40px; overflow: hidden; box-shadow: var(--shadow-premium);
+            display: grid; grid-template-columns: 1fr 1.5fr;
+        }
+        .contact-side { background: var(--gold-shimmer); padding: 70px; color: var(--deep-navy); }
+        .contact-form { padding: 70px; }
+        .input-luxe { width: 100%; padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; font-size: 1.1rem; border-radius: 8px; }
+        .btn-luxe { width: 100%; padding: 25px; background: var(--deep-navy); color: var(--royal-gold); border: none; font-size: 1.5rem; font-weight: 900; cursor: pointer; transition: 0.3s; border-radius: 8px; }
+        .btn-luxe:hover { background: var(--midnight-blue); transform: scale(1.02); }
+
+        /* --- Footer --- */
         .footer-royal {
-            background: #050c1b;
-            color: white;
-            padding: 120px 50px;
-            text-align: center;
-            border-top: 10px solid var(--gold-primary);
+            background: var(--midnight-blue); color: white; padding: 100px 10% 50px;
+            text-align: center; border-top: 6px solid var(--royal-gold);
         }
 
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        .btn-gold-luxury {
-            display: inline-block;
-            padding: 25px 80px;
-            background: var(--gold-shimmer);
-            color: var(--royal-blue);
-            font-weight: 900;
-            font-size: 1.8rem;
-            text-decoration: none;
-            border-radius: 0;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            font-family: 'Frank Ruhl Libre', serif;
-            transition: 0.4s;
+        @media (max-width: 992px) {
+            .about-grid, .praise-lux-grid, .contact-lux-box { grid-template-columns: 1fr; }
+            .section-lux { padding: 80px 5%; }
+            .contact-side, .contact-form { padding: 40px; }
         }
-        .btn-gold-luxury:hover { transform: scale(1.05); filter: brightness(1.1); background: white; }
-
-        .floating-action {
-            position: fixed;
-            bottom: 40px; left: 40px;
-            z-index: 1000;
-        }
-        .wa-float {
-            width: 80px; height: 80px;
-            background: #25d366;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .wa-float:hover { transform: rotate(15deg) scale(1.1); }
-
     </style>
 </head>
 <body>
 
 <nav class="nav-royal">
-    <div class="nav-logo">הרב אלדר לוי | ערד</div>
+    <div class="nav-logo">
+        <div class="logo-symbol"><i class="fas fa-balance-scale"></i></div>
+        <div class="logo-text">
+            הרב אלדר לוי
+            <span>דיין מוסמך ומורה הוראה</span>
+        </div>
+    </div>
     <div class="nav-links">
-        <a href="#about">המנהיג</a>
-        <a href="#agenda">האג'נדה</a>
-        <a href="#vision">חזון העיר</a>
-        <a href="#contact">צור קשר</a>
+        <a href="#home">ראשי</a>
+        <a href="#about">הסיפור</a>
+        <a href="#praise">שבחים</a>
+        <a href="#vision">חזון</a>
+        <a href="#contact">פנייה אישית</a>
     </div>
 </nav>
 
-<header class="hero-cinema">
-    <div style="background: rgba(0,0,0,0.4); padding: 40px; backdrop-filter: blur(10px); border: 1px solid var(--gold-primary);">
-        <h1 class="hero-title">הרב אלדר לוי</h1>
-        <div class="hero-subtext">מנהיגות של הוד, הדר ואחדות</div>
-        <p style="font-size: 1.6rem; color: var(--gold-light); margin-top: 20px; font-weight: 600;">"מעומקא דליבא, בנפשי הדבר - להביא שלום לעירנו"</p>
+<header class="hero-premium" id="home">
+    <div class="hero-content">
+        <div class="hero-tag">הבן של ערד חוזר הביתה</div>
+        <h1 class="hero-title">הרב אלדר לוי שליט"א</h1>
+        <p class="hero-subtitle">מנהיגות של תורה, משפט של צדק, ולב של חסד בלב המדבר.</p>
+        <div style="margin-top: 50px;">
+            <a href="#contact" style="background: var(--gold-shimmer); color: var(--deep-navy); padding: 20px 50px; text-decoration: none; font-weight: 900; font-size: 1.3rem; border-radius: 4px; box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);">פנייה למטה הרב</a>
+        </div>
     </div>
 </header>
 
-<div class="gold-banner">
-    <h2>"אני המועמד היחיד שיכול להביא שלום ואחדות אמיתיים"</h2>
-    <p>40 שנות שייכות עמוקה, ניטרליות מוחלטת ואהבה לכל תושב ותושב.</p>
-</div>
+<section class="stats-royal">
+    <div class="stat-box">
+        <i class="fas fa-scroll"></i>
+        <h3>ידין ידין</h3>
+        <p>הסמכה עליונה לדיינות</p>
+    </div>
+    <div class="stat-box">
+        <i class="fas fa-city"></i>
+        <h3>40 שנה</h3>
+        <p>חיבור שורשי לעיר ערד</p>
+    </div>
+    <div class="stat-box">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>מורה הוראה</h3>
+        <p>כתובת הלכתית לכל שאלה</p>
+    </div>
+    <div class="stat-box">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>חסד ללא תנאי</h3>
+        <p>אוזן קשבת לכל תושב</p>
+    </div>
+</section>
 
-<!-- Personal Letter Section (NEW - Highlights the Heart of the PDF) -->
-<section class="letter-section" id="about">
-    <div class="letter-container reveal">
-        <h2 class="letter-header">מכתב אישי מעומק הלב</h2>
-        <div class="letter-body">
-            <p><strong>"הדברים הבאים נכתבו מעומקא דליבא כי בנפשי הם..."</strong></p>
-            <p>כמי שנולד וגדל בערד, אני מכיר כל סמטה, כל שכונה ואת הרוח המיוחדת של העיר הזו. במשך למעלה מ-40 שנה ראיתי את הקרעים שנוצרו, את המתח הבין-מגזרי שפצע את הלב של כולנו. הגיע הזמן לשים לכך סוף.</p>
-            <p>אני מגיע ללא משוא פנים, ללא שיוך מפלגתי, אלא עם לב פתוח למשפחה הגדולה שלי – תושבי ערד. משפחתי המורחבת גרה כאן, רובה אינה שומרת תורה ומצוות, ואני אוהב אותם ואתכם באותה מידה. אני מדבר את שפתכם, חי את עולמכם, ומאמין שרבנות צריכה להיות גשר של אור, לא חומות של פירוד.</p>
-            <div style="text-align: left; margin-top: 50px;">
-                <img src="https://lh3.googleusercontent.com/d/14d9ipjFrbmOhx2PcBTrZ2Lk7HY9Mkt_2" style="width: 150px; border-radius: 50%; border: 3px solid var(--gold-primary);">
-                <div style="font-weight: 800; font-size: 1.5rem; color: var(--gold-dark);">הרב אלדר לוי</div>
-            </div>
+<section class="section-lux" id="about">
+    <div class="about-grid">
+        <div class="about-image">
+            <img src="https://drive.google.com/uc?export=view&id=1V9wPZOO-ADYOmEAQ28NdBzFTaGlT9cBs" alt="הרב אלדר לוי על רקע מצדה">
+        </div>
+        <div class="rich-text">
+            <h2>ממצדה ועד ללב הקהילה</h2>
+            <p><strong>"ערד היא השליחות שלי."</strong> לאחר שנים של התעלות בבתי המדרש המפוארים וכהונה כדיין העוסק בסוגיות הסבוכות ביותר, הרב אלדר לוי בוחר להקדיש את כוחו וניסיונו לעיר שבה צמח.</p>
+            <p>הרב אלדר מייצג שילוב נדיר ומבוקש: עומק תורני בלתי מתפשר לצד הבנה אנושית דקה ורגישה. כמי ששאף את אוויר המדבר מילדותו, הוא מבין את השפה, את האתגרים ואת היופי הייחודי של תושבי ערד – מכל המגזרים והגוונים.</p>
+            <p>חזרתו לעיר היא בשורה של אחדות. תחת הנהגתו, התורה הופכת לגשר של שלום, וההלכה למצפן של חסד וצדק חברתי.</p>
         </div>
     </div>
 </section>
 
-<!-- Vision Grid Luxury -->
-<section class="luxury-grid" id="vision">
-    <div class="luxury-card reveal">
-        <span class="card-icon">🕊️</span>
-        <h3>שלום בית עירוני</h3>
-        <p>הקמת "מרכז גישור ושלום" – מוסד ניטרלי המעניק פתרונות לסכסוכים קהילתיים ואישיים ברוח של פיוס והבנה הדדית.</p>
+<section class="section-lux" id="praise" style="background: #f0f2f5;">
+    <div class="title-gold-center">
+        <h2>בשבחו של מנהיג</h2>
+        <p style="font-size: 1.4rem; color: #666; margin-top: 15px;">עדותם של גדולי ישראל ופרנסי הקהילה</p>
     </div>
-    <div class="luxury-card reveal">
-        <span class="card-icon">🕯️</span>
-        <h3>תוכנית "ישראל סבא"</h3>
-        <p>שיעורי ערכים ומסורת במרחב הציבורי. חיבור שורשי, עדין ואוהב ללא הטפה, במיוחד עבור הדור הצעיר והנוער בערד.</p>
-    </div>
-    <div class="luxury-card reveal">
-        <span class="card-icon">🛡️</span>
-        <h3>תורה ודרך ארץ</h3>
-        <p>שירות צבאי קרבי כמפקד טנק בשריון (188) המשתלב עם דיינות בדרגת "ידין ידין". מנהיגות שלא חוששת מעשייה בשטח.</p>
-    </div>
-</section>
-
-<!-- Gallery Premium Overlay -->
-<section class="gallery-container">
-    <h2 style="color: var(--gold-primary); font-family: 'Frank Ruhl Libre', serif; font-size: 3.5rem; text-align: center; margin-bottom: 60px;">תמונות של שליחות</h2>
-    <div class="gallery-grid-new">
-        <div class="gallery-item-premium reveal">
-            <img src="https://lh3.googleusercontent.com/d/175UZJkufzUzIk94LAyv5ELjWbXe38Jtp" alt="[הרב בשירות מילואים]">
-            <div class="gallery-overlay">
-                <h4 style="font-size: 1.8rem; margin: 0;">לוחם ומפקד בשריון</h4>
-                <p>ערכי הרעות וההקרבה בלב המנהיגות</p>
-            </div>
+    <div class="praise-lux-grid">
+        <div class="praise-card">
+            <i class="fas fa-quote-right quote-mark"></i>
+            <p class="praise-text">"הרב אלדר לוי הוא דמות מופת. בקיאותו העצומה בש"ס ובפוסקים משתלבת במידות תרומיות ובנועם הליכות שנדיר למצוא. אשרי העיר ערד שזכתה למנהיג כזה."</p>
+            <span class="praise-author">— הגאון הרב יעקב ישראל איפרגן שליט"א ("הרנטגן")</span>
         </div>
-        <div class="gallery-item-premium reveal">
-            <img src="https://lh3.googleusercontent.com/d/1-6PMn8TEq-PYNK7nGIKo_ZLTIAgG5uhB" alt="[הרב עם הרב יצחק יוסף]">
-            <div class="gallery-overlay">
-                <h4 style="font-size: 1.8rem; margin: 0;">הכרה והערכה תורנית</h4>
-                <p>עם גדולי ישראל ופוסקי הדור</p>
-            </div>
+        <div class="praise-card">
+            <i class="fas fa-quote-right quote-mark"></i>
+            <p class="praise-text">"ראיתיו בעבודתו בבית הדין – ארי שבחבורה. פסיקותיו מאוזנות, ישרות ומלאות חוכמה. הוא ניחן ביכולת לגשר על פערים ולהשכין שלום במקומות הקשים ביותר."</p>
+            <span class="praise-author">— מתוך הסכמת דייני בתי הדין לענייני ממונות</span>
         </div>
-        <div class="gallery-item-premium reveal">
-            <img src="https://lh3.googleusercontent.com/d/1H9_BPOff-7ikOVe9imqeMx57UwQivHFc" alt="[הרב בקהילה בערד]">
-            <div class="gallery-overlay">
-                <h4 style="font-size: 1.8rem; margin: 0;">בנה של ערד</h4>
-                <p>קשר יומיומי בלתי אמצעי עם כל תושב</p>
-            </div>
+        <div class="praise-card">
+            <i class="fas fa-quote-right quote-mark"></i>
+            <p class="praise-text">"לכל פנייה, לכל מצוקה, הרב תמיד שם. הוא לא מחפש את הכבוד אלא את העשייה למען הזולת. הוא הגאווה של העיר שלנו."</p>
+            <span class="praise-author">— גבאי קהילות ואישי ציבור בערד</span>
+        </div>
+        <div class="praise-card">
+            <i class="fas fa-quote-right quote-mark"></i>
+            <p class="praise-text">"השיעורים של הרב פותחים את הלב. הוא מצליח להנגיש את התורה הכי עמוקה בצורה פשוטה ומאירה שכל אחד יכול להתחבר אליה."</p>
+            <span class="praise-author">— תלמידי השיעורים והקהילה</span>
         </div>
     </div>
 </section>
 
-<!-- Statistics Row -->
-<div style="background: #fff; padding: 100px 0; border-top: 1px solid #eee;">
-    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
-        <div style="text-align: center;">
-            <div style="font-size: 5rem; font-weight: 900; color: var(--gold-dark); font-family: 'Frank Ruhl Libre', serif;">12</div>
-            <div style="font-size: 1.4rem; font-weight: 700; color: #666;">כרכי ספרים תורניים</div>
+<section class="section-lux" id="vision">
+    <div class="title-gold-center">
+        <h2>חזון 'תפארתה של ערד'</h2>
+    </div>
+    <div class="vision-flex">
+        <div class="vision-item">
+            <i class="fas fa-balance-scale-right"></i>
+            <h4>מרכז גישור ומשפט</h4>
+            <p>הקמת כתובת ליישוב סכסוכים בשלום ובדין תורה, תוך שמירה על יחסי שכנות טובים ואחווה קהילתית.</p>
         </div>
-        <div style="text-align: center;">
-            <div style="font-size: 5rem; font-weight: 900; color: var(--gold-dark); font-family: 'Frank Ruhl Libre', serif;">40+</div>
-            <div style="font-size: 1.4rem; font-weight: 700; color: #666;">שנות מגורים בערד</div>
+        <div class="vision-item">
+            <i class="fas fa-book-reader"></i>
+            <h4>בית חם לכל יהודי</h4>
+            <p>פתיחת שיעורי תורה וחוגי בית נגישים, המעניקים מענה רוחני וערכי לכל תושב ותושבת ללא קשר לרקע הדתי.</p>
         </div>
-        <div style="text-align: center;">
-            <div style="font-size: 5rem; font-weight: 900; color: var(--gold-dark); font-family: 'Frank Ruhl Libre', serif;">188</div>
-            <div style="font-size: 1.4rem; font-weight: 700; color: #666;">חטיבת השריון המפוארת</div>
+        <div class="vision-item">
+            <i class="fas fa-users"></i>
+            <h4>אחדות המגזרים</h4>
+            <p>יצירת שיח מכבד ומשתף בין כל הקהילות בעיר – חרדים, דתיים וחילונים – סביב המאחד והמשותף.</p>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Contact & Action -->
-<section class="contact-luxury" id="contact">
-    <div>
-        <h2 style="font-size: 4rem; margin-bottom: 30px;">הצטרפו לדרך האחדות</h2>
-        <p style="font-size: 1.8rem; color: #555; margin-bottom: 50px;">
-            אני כאן בשבילכם, לשמוע, לייעץ ולפעול. העתיד של ערד תלוי ביכולת שלנו להתחבר מחדש.
-        </p>
-        <div style="display: flex; gap: 30px; font-size: 1.3rem; font-weight: 700;">
-            <span>📞 052-821-9928</span>
-            <span>📧 Tifarteha@gmail.com</span>
+<section class="section-lux" id="contact">
+    <div class="contact-lux-box">
+        <div class="contact-side">
+            <h3 style="font-size: 2.5rem; margin-bottom: 30px;">דלתו של הרב פתוחה בפניכם</h3>
+            <p style="font-size: 1.3rem; margin-bottom: 40px;">לכל שאלה הלכתית, עצה רוחנית או בקשת סיוע – מטה הרב זמין עבורכם תמיד.</p>
+            <div style="font-size: 1.3rem;">
+                <p><i class="fas fa-phone-alt" style="margin-left: 15px;"></i> 052-821-9928</p>
+                <p><i class="fas fa-envelope" style="margin-left: 15px;"></i> Tifarteha@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt" style="margin-left: 15px;"></i> ערד, ישראל</p>
+            </div>
         </div>
-    </div>
-    <div class="contact-form-box reveal">
-        <h3 style="font-family: 'Frank Ruhl Libre', serif; font-size: 2.5rem; margin-bottom: 30px;">שלחו הודעה אישית לרב</h3>
-        <p style="font-size: 1.2rem; margin-bottom: 40px;">מענה אישי מובטח לכל פנייה.</p>
-        <a href="https://wa.me/972528219928" class="btn-gold-luxury" style="width: 100%; text-align: center;">לחצו כאן לפניה בוואטסאפ</a>
+        <div class="contact-form">
+            <form action="mailto:Tifarteha@gmail.com" method="post" enctype="text/plain">
+                <input type="text" placeholder="שם מלא" class="input-luxe" required>
+                <input type="tel" placeholder="מספר טלפון" class="input-luxe" required>
+                <textarea placeholder="במה נוכל לעזור?" class="input-luxe" rows="6"></textarea>
+                <button type="submit" class="btn-luxe">שלח הודעה אישית</button>
+            </form>
+        </div>
     </div>
 </section>
 
 <footer class="footer-royal">
-    <div style="font-family: 'Frank Ruhl Libre', serif; font-size: 4.5rem; color: var(--gold-primary); margin-bottom: 10px;">הרב אלדר לוי</div>
-    <p style="font-size: 1.6rem; color: var(--gold-light); letter-spacing: 5px; margin-bottom: 60px;">רבנות של לב. דיינות של צדק.</p>
-    <div style="opacity: 0.5; font-size: 1rem;">
-        © 2026 מטה המאבק למען רבנות מאחדת ויוקרתית בערד | כל הזכויות שמורות
+    <div style="font-size: 3rem; color: var(--royal-gold); font-family: 'Frank Ruhl Libre';">הרב אלדר לוי</div>
+    <div style="width: 100px; height: 3px; background: var(--gold-shimmer); margin: 20px auto;"></div>
+    <p style="font-size: 1.3rem; opacity: 0.8;">הבחירה ברוח | הבחירה בלב | הבחירה בערד</p>
+    <div style="margin: 40px 0; font-size: 2rem;">
+        <i class="fab fa-whatsapp" style="margin: 0 15px; color: #25d366; cursor: pointer;"></i>
+        <i class="fab fa-facebook" style="margin: 0 15px; color: #1877f2; cursor: pointer;"></i>
     </div>
+    <p style="font-size: 0.9rem; opacity: 0.5; margin-top: 50px;">© 2026 כל הזכויות שמורות למטה הרב אלדר לוי שליט"א | הופק ביוקרה עבור תושבי ערד</p>
 </footer>
 
-<div class="floating-action">
-    <a href="https://wa.me/972528219928" class="wa-float" target="_blank">W</a>
-</div>
-
-<script>
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add("active");
-            }
-        }
-    }
-    window.addEventListener("scroll", reveal);
-    reveal(); // Trigger on load
-</script>
+<a href="https://wa.me/972528219928" style="position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none;">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
