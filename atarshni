@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרב אלדר לוי | הנהגה, הלכה וחסד בלב ערד</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600;700;800&family=Frank+Ruhl+Libre:wght@300;500;700;900&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { 
+            --gold: #d4af37;
+            --gold-light: #fef0c3;
+            --gold-dark: #b89020;
+            --gold-gradient: linear-gradient(135deg, #C59B3C, #FDF0B0, #9E7421, #FDF0B0, #C59B3C);
+            --deep-navy: #060c1a;
+            --paper: #fdfbf7;
+            --text-dark: #1f2937;
+            --glass: rgba(255, 255, 255, 0.85);
+            --shadow-lux: 0 20px 40px rgba(0,0,0,0.06);
+            --shadow-gold: 0 10px 30px rgba(212,175,55,0.2);
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        ::selection { background: var(--gold-light); color: var(--deep-navy); }
+        
+        body { 
+            font-family: 'Assistant', sans-serif; 
+            margin: 0; 
+            background: var(--paper); 
+            color: var(--text-dark); 
+            overflow-x: hidden;
+            /* Subtle premium background pattern */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 { font-family: 'Frank Ruhl Libre', serif; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-15px); } 60% { transform: translateY(-7px); } }
+        @keyframes floating { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        @keyframes subtleZoom { from { transform: scale(1); } to { transform: scale(1.05); } }
+
+        .reveal { opacity: 0; transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(40px); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .float { animation: floating 4s ease-in-out infinite; }
+
+        .nav-glass {
+            position: fixed; top: 25px; left: 50%; transform: translateX(-50%); width: 95%; max-width: 1200px;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 60px; padding: 15px 40px; display: flex;
+            justify-content: space-between; align-items: center; z-index: 1000; box-shadow: var(--shadow-lux); transition: all 0.4s ease;
+        }
+        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--deep-navy); }
+        .nav-brand img { width: 50px; height: 50px; object-fit: cover; border-radius: 50%; border: 2px solid var(--gold); box-shadow: 0 0 15px rgba(212,175,55,0.4); }
+        .nav-brand span { font-weight: 800; font-size: 1.4rem; font-family: 'Frank Ruhl Libre', serif; }
+        
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 1.05rem; transition: 0.3s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -6px; right: 0; background: var(--gold-gradient); transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--gold-dark); }
+        
+        .btn-contact { background: var(--gold-gradient) !important; color: var(--deep-navy) !important; padding: 10px 25px !important; border-radius: 30px !important; box-shadow: var(--shadow-gold); font-weight: 700 !important; }
+        .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(212,175,55,0.3); }
+
+        .mobile-toggle { display: none; font-size: 1.8rem; color: var(--deep-navy); cursor: pointer; }
+
+        .mobile-menu { position: fixed; top: 0; right: -100%; width: 100vw; height: 100vh; background: rgba(5, 10, 20, 0.98); backdrop-filter: blur(15px); z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu a { color: #fff; font-size: 2.2rem; text-decoration: none; font-family: 'Frank Ruhl Libre'; transition: 0.3s; }
+        .mobile-menu a:hover { color: var(--gold); transform: scale(1.05); }
+        .close-menu { position: absolute; top: 30px; left: 30px; color: white; font-size: 3rem; cursor: pointer; transition: 0.3s; }
+        .close-menu:hover { color: var(--gold); transform: rotate(90deg); }
+
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; background: #000; overflow: hidden; }
+        .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://www.deadsea.co.il/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-08-at-13.30.31-2.jpeg') center/cover no-repeat; filter: brightness(0.5) contrast(1.1); transform: scale(1.1); transition: transform 0.1s; animation: subtleZoom 20s infinite alternate; }
+        .hero-content { z-index: 10; max-width: 1000px; padding: 20px; }
+        
+        .hero-frame { border: 1px solid rgba(212, 175, 55, 0.3); padding: 60px; border-radius: 30px; background: linear-gradient(135deg, rgba(5,10,20,0.7), rgba(0,0,0,0.4)); backdrop-filter: blur(12px); position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 0 30px rgba(212,175,55,0.1); }
+        .hero-crown { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2.5rem; filter: drop-shadow(0 5px 15px rgba(212,175,55,0.4)); }
+        
+        .hero-title { font-size: clamp(3.5rem, 9vw, 7.5rem); margin: 0; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6)); line-height: 1.1; }
+        .hero-tagline { font-size: clamp(1.2rem, 3vw, 1.8rem); margin: 0 0 15px 0; font-weight: 400; letter-spacing: 5px; color: var(--gold-light); text-transform: uppercase; }
+        .hero-subtitle { font-size: clamp(1.4rem, 4vw, 2rem); opacity: 0.9; text-shadow: 0 2px 4px rgba(0,0,0,0.5); font-weight: 300; margin-top: 25px; }
+        .scroll-down { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); font-size: 2.5rem; color: var(--gold); animation: bounce 2s infinite; cursor: pointer; z-index: 10; filter: drop-shadow(0 0 10px rgba(212,175,55,0.5)); }
+
+        .timeline-section { padding: 120px 5%; background: transparent; position: relative; overflow: hidden; }
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background: var(--gold-gradient); top: 0; bottom: 0; right: 50%; margin-right: -2px; border-radius: 2px; opacity: 0.5; box-shadow: 0 0 15px rgba(212,175,55,0.5); }
+        .timeline-item { padding: 20px 40px; position: relative; width: 50%; box-sizing: border-box; }
+        .timeline-item:nth-child(odd) { right: 0; text-align: left; }
+        .timeline-item:nth-child(even) { right: 50%; text-align: right; }
+        .timeline-item::after { content: ''; position: absolute; width: 28px; height: 28px; background: var(--paper); border: 5px solid var(--gold); top: 30px; border-radius: 50%; z-index: 1; box-shadow: 0 0 20px rgba(212,175,55,0.6); transition: 0.4s; }
+        .timeline-item:hover::after { background: var(--gold-gradient); transform: scale(1.3); }
+        .timeline-item:nth-child(odd)::after { left: -14px; }
+        .timeline-item:nth-child(even)::after { right: -14px; }
+        .timeline-content { padding: 40px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 24px; box-shadow: var(--shadow-lux); border: 1px solid rgba(212,175,55,0.2); position: relative; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .timeline-content:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 60px rgba(212,175,55,0.15); border-color: var(--gold); }
+        .timeline-date { display: inline-block; padding: 8px 20px; background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05)); color: var(--gold-dark); border-radius: 30px; font-weight: 800; font-size: 1.1rem; margin-bottom: 20px; font-family: 'Assistant', sans-serif; border: 1px solid rgba(212,175,55,0.2); }
+        .timeline-content h3 { margin-top: 0; color: var(--deep-navy); font-size: 1.8rem; margin-bottom: 15px; font-weight: 800; }
+        .timeline-content p { color: #555; line-height: 1.8; margin-bottom: 0; font-size: 1.15rem; }
+
+        .weekly-pearl { padding: 100px 5%; background: linear-gradient(135deg, var(--deep-navy), #0a1128); color: white; position: relative; }
+        .pearl-container { max-width: 1000px; margin: 0 auto; display: flex; gap: 40px; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.3); padding: 60px; border-radius: 30px; backdrop-filter: blur(15px); box-shadow: 0 20px 50px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+        .pearl-container::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--gold-gradient); }
+        .pearl-icon { font-size: 5rem; color: var(--gold); opacity: 0.9; text-shadow: var(--shadow-gold); }
+        .pearl-content h2 { color: var(--gold-light); font-size: 2.5rem; margin-top: 0; margin-bottom: 20px; }
+        .pearl-content p { font-size: 1.35rem; line-height: 1.9; font-family: 'Amiri', serif; }
+
+        .audio-section { padding: 100px 5%; background: transparent; }
+        .audio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .audio-card { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 20px; padding: 20px 30px; display: flex; align-items: center; gap: 25px; box-shadow: var(--shadow-lux); border: 1px solid rgba(212,175,55,0.15); transition: 0.4s; }
+        .audio-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(212,175,55,0.12); border-color: var(--gold); }
+        .play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #fef0c3, #fdfbf7); border: 2px solid var(--gold); color: var(--deep-navy); font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.4s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(212,175,55,0.2); }
+        .play-btn:hover { background: var(--gold-gradient); color: white; transform: scale(1.1); box-shadow: 0 10px 25px rgba(212,175,55,0.4); border-color: transparent; }
+        .audio-info { flex-grow: 1; }
+        .audio-info h4 { margin: 0 0 5px 0; color: var(--deep-navy); font-size: 1.2rem; font-weight: 700; }
+        .audio-info p { margin: 0; color: #777; font-size: 1rem; }
+        .audio-duration { font-size: 0.9rem; color: var(--gold-dark); font-weight: bold; background: rgba(212,175,55,0.1); padding: 5px 12px; border-radius: 20px; }
+
+        .services { padding: 120px 5%; background: transparent; }
+        .section-title { text-align: center; margin-bottom: 70px; }
+        .section-title h2 { font-size: clamp(2.8rem, 6vw, 4rem); color: var(--deep-navy); margin-bottom: 15px; }
+        .section-title .line { width: 100px; height: 5px; background: var(--gold-gradient); margin: 0 auto; border-radius: 3px; box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
+        .section-title p { color: #666; font-size: 1.3rem; margin-top: 20px; font-weight: 500; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 50px 30px; border-radius: 24px; text-align: center; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(212, 175, 55, 0.15); box-shadow: var(--shadow-lux); position: relative; z-index: 1; overflow: hidden; }
+        .card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--gold-gradient); transition: 0.5s ease; opacity: 0.8; }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(212,175,55,0.15); border-color: rgba(212, 175, 55, 0.4); }
+        .card:hover::after { height: 100%; opacity: 0.05; }
+        .card i { font-size: 3.5rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; transition: 0.4s; filter: drop-shadow(0 5px 10px rgba(212,175,55,0.2)); }
+        .card:hover i { transform: scale(1.15) translateY(-5px); }
+        .card h3 { font-size: 1.8rem; color: var(--deep-navy); margin-bottom: 15px; font-weight: 800; }
+        .card p { color: #555; line-height: 1.7; font-size: 1.1rem; }
+
+        .letter-section { padding: 120px 10%; background: linear-gradient(rgba(253, 251, 247, 0.96), rgba(253, 251, 247, 0.96)), url('https://www.deadsea.co.il/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-08-at-13.30.31-2.jpeg') center/cover fixed; display: flex; align-items: center; gap: 70px; }
+        .portrait-container { flex: 1; position: relative; }
+        .portrait-container img { width: 100%; border-radius: 20px; box-shadow: 30px 30px 0 rgba(212,175,55,0.8), 0 20px 50px rgba(0,0,0,0.2); transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .portrait-container:hover img { transform: translate(-10px, -10px); box-shadow: 40px 40px 0 rgba(5,10,20,0.9), 0 30px 60px rgba(0,0,0,0.3); }
+        .letter-content { flex: 1.5; font-family: 'Amiri', serif; font-size: 1.45rem; line-height: 2.2; color: #222; }
+        .letter-content b { color: var(--gold-dark); font-size: 1.6rem; }
+        .book-highlight { margin: 35px 0; padding: 30px; background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-radius: 20px; border-right: 5px solid var(--gold); display: flex; gap: 25px; align-items: center; box-shadow: var(--shadow-lux); transition: 0.4s; }
+        .book-highlight:hover { transform: translateX(-10px); border-color: var(--deep-navy); }
+
+        .testimonials { padding: 120px 5%; background: transparent; }
+        .testimo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 50px auto 0; }
+        .testimo-card { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 50px; border-radius: 24px; position: relative; border: 1px solid rgba(212,175,55,0.15); box-shadow: var(--shadow-lux); transition: 0.4s; }
+        .testimo-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(212,175,55,0.15); border-color: var(--gold); }
+        .testimo-card i.fa-quote-right { position: absolute; top: 30px; right: 30px; font-size: 4rem; color: var(--gold); opacity: 0.15; }
+        .testimo-text { font-family: 'Amiri', serif; font-size: 1.3rem; color: #333; line-height: 1.8; margin-bottom: 25px; position: relative; z-index: 2; }
+        .testimo-author { font-weight: 800; color: var(--deep-navy); border-top: 2px solid var(--gold-light); padding-top: 15px; display: inline-block; font-size: 1.1rem; }
+
+        .gallery-container { padding: 100px 0; background: var(--deep-navy); overflow: hidden; position: relative; }
+        .gallery-container::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--gold-gradient); }
+        .gallery-track { display: flex; overflow-x: auto; gap: 20px; padding: 30px 5%; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        .gallery-track::-webkit-scrollbar { height: 8px; }
+        .gallery-track::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .gallery-track::-webkit-scrollbar-thumb { background: var(--gold-gradient); border-radius: 10px; }
+        .gallery-item { min-width: 350px; height: 450px; position: relative; cursor: pointer; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.2); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); filter: brightness(0.8) sepia(10%); }
+        .gallery-item:hover img { filter: brightness(1.1) sepia(0); transform: scale(1.1); }
+        .gallery-overlay { position: absolute; bottom: -80px; left: 0; width: 100%; background: linear-gradient(transparent, rgba(5,10,20,0.95)); color: white; padding: 40px 25px 25px; text-align: center; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 1.2rem; font-weight: 700; border-bottom: 4px solid var(--gold); }
+        .gallery-item:hover .gallery-overlay { bottom: 0; }
+
+        .lightbox { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(5, 10, 20, 0.98); backdrop-filter: blur(10px); z-index: 3000; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.4s; }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 15px; box-shadow: 0 0 60px rgba(212,175,55,0.2); border: 2px solid var(--gold); }
+        .lightbox-close { position: absolute; top: 40px; right: 50px; color: white; font-size: 3rem; cursor: pointer; transition: 0.3s; }
+        .lightbox-close:hover { color: var(--gold); transform: rotate(90deg) scale(1.1); }
+
+        .faq-section { padding: 120px 5%; background: transparent; }
+        .faq-container { max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 24px; padding: 40px; box-shadow: var(--shadow-lux); border: 1px solid rgba(212,175,55,0.15); }
+        .faq-item { border-bottom: 1px solid rgba(0,0,0,0.05); margin-bottom: 15px; }
+        .faq-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .faq-question { width: 100%; text-align: right; background: none; border: none; padding: 25px 15px; font-size: 1.3rem; font-family: 'Assistant', sans-serif; font-weight: 800; color: var(--deep-navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; border-radius: 15px; }
+        .faq-question:hover { color: var(--gold-dark); background: rgba(212,175,55,0.03); padding-right: 25px; }
+        .faq-question i { color: var(--gold-dark); transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: rgba(212,175,55,0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 10px rgba(255,255,255,0.5); }
+        .faq-question.active i { transform: rotate(180deg); background: var(--gold-gradient); color: white; box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .faq-answer-content { padding: 0 15px 30px; color: #555; line-height: 1.8; font-size: 1.15rem; }
+
+        .contact-box { max-width: 1100px; margin: -80px auto 100px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); display: flex; border-radius: 30px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); overflow: hidden; z-index: 100; position: relative; border: 1px solid rgba(212, 175, 55, 0.2); }
+        .contact-info { background: var(--gold-gradient); padding: 70px; flex: 1; color: var(--deep-navy); position: relative; overflow: hidden; }
+        .contact-info::after { content: '\f65e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; bottom: -30px; right: -30px; font-size: 18rem; opacity: 0.08; pointer-events: none; transform: rotate(-15deg); }
+        .contact-form { padding: 70px; flex: 1.5; }
+        input, textarea { width: 100%; padding: 18px 25px; margin-bottom: 25px; border: 2px solid #eaeaea; border-radius: 15px; font-family: inherit; font-size: 1.1rem; background: #fafafa; transition: 0.3s; }
+        input:focus, textarea:focus { outline: none; border-color: var(--gold); background: white; box-shadow: 0 0 15px rgba(212,175,55,0.15); }
+        .btn-submit { background: var(--deep-navy); color: var(--gold-light); padding: 20px 40px; border: none; border-radius: 15px; font-weight: 800; font-size: 1.2rem; cursor: pointer; transition: 0.4s; width: 100%; display: flex; justify-content: center; align-items: center; gap: 12px; }
+        .btn-submit:hover { background: #000; transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); color: white; }
+        .whatsapp-join { margin-top: 30px; display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.4s; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); border: 2px solid transparent; }
+        .whatsapp-join:hover { background: #1ebd5a; transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4); border-color: white; }
+
+        footer { background: var(--deep-navy); color: white; padding: 100px 5% 40px; text-align: center; border-top: 5px solid var(--gold); position: relative; overflow: hidden; }
+        footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; pointer-events: none; }
+        .footer-logo { font-size: 3.5rem; font-family: 'Frank Ruhl Libre'; color: var(--gold-light); margin-bottom: 20px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .social-icons a { color: rgba(255,255,255,0.6); font-size: 2.2rem; margin: 0 15px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-block; }
+        .social-icons a:hover { color: var(--gold); transform: translateY(-8px) scale(1.1); filter: drop-shadow(0 5px 10px rgba(212,175,55,0.4)); }
+
+        .scroll-progress-bar { position: fixed; top: 0; left: 0; height: 5px; background: var(--gold-gradient); width: 0%; z-index: 99999; transition: width 0.1s; box-shadow: 0 0 10px rgba(212,175,55,0.5); }
+        
+        #backToTop { position: fixed; bottom: 40px; left: 40px; width: 60px; height: 60px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); color: var(--deep-navy); border: 2px solid var(--gold); border-radius: 50%; font-size: 1.8rem; display: flex; justify-content: center; align-items: center; cursor: pointer; opacity: 0; transform: translateY(30px); visibility: hidden; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1000; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        #backToTop:hover { background: var(--gold-gradient); color: white; transform: translateY(-5px); box-shadow: 0 20px 40px rgba(212,175,55,0.4); border-color: transparent; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-glass { padding: 12px 25px; width: 92%; }
+            .letter-section { flex-direction: column; padding: 100px 5%; text-align: center; }
+            .contact-box { flex-direction: column; margin: 40px 20px; }
+            .pearl-container { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .hero-title { font-size: 3.5rem; }
+            .hero-frame { padding: 40px 20px; }
+            .contact-info, .contact-form { padding: 40px 25px; }
+            .timeline::after { right: 31px; }
+            .timeline-item { width: 100%; padding-right: 70px; padding-left: 0; text-align: right !important; }
+            .timeline-item:nth-child(odd) { right: 0; text-align: right; }
+            .timeline-item:nth-child(even) { right: 0; }
+            .timeline-item::after { right: 17px !important; left: auto !important; }
+            .faq-container { padding: 25px; }
+            .faq-question { font-size: 1.15rem; padding: 20px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <i class="fas fa-times close-menu" onclick="toggleMenu()"></i>
+        <a href="#services" onclick="toggleMenu()">שירותי הרבנות</a>
+        <a href="#timeline" onclick="toggleMenu()">מסע חייו</a>
+        <a href="#weekly-pearl" onclick="toggleMenu()">פנינת השבוע</a>
+        <a href="#audio-classes" onclick="toggleMenu()">שיעורי שמע</a>
+        <a href="#about" onclick="toggleMenu()">דבר הרב</a>
+        <a href="#testimonials" onclick="toggleMenu()">הקהילה</a>
+        <a href="#gallery" onclick="toggleMenu()">גלריה</a>
+        <a href="#faq" onclick="toggleMenu()">שאלות נפוצות</a>
+        <a href="#contact" onclick="toggleMenu()">יצירת קשר</a>
+    </div>
+
+    <nav class="nav-glass" id="navbar">
+        <a href="#" class="nav-brand">
+            <img src="https://drive.google.com/uc?export=view&id=1V9wPZOO-ADYOmEAQ28NdBzFTaGlT9cBs" alt="הרב אלדר לוי">
+            <span>הרב אלדר לוי</span>
+        </a>
+        <div class="nav-links">
+            <a href="#services">שירותי הרבנות</a>
+            <a href="#timeline">מסע חייו</a>
+            <a href="#weekly-pearl">פנינת השבוע</a>
+            <a href="#audio-classes">שיעורי שמע</a>
+            <a href="#about">דבר הרב</a>
+            <a href="#gallery">גלריה</a>
+            <a href="#faq">שאלות נפוצות</a>
+            <a href="#contact" class="btn-contact">צור קשר <i class="fas fa-arrow-left" style="margin-right: 5px;"></i></a>
+        </div>
+        <i class="fas fa-bars mobile-toggle" onclick="toggleMenu()"></i>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-video-bg" id="parallax-bg"></div>
+        <div class="hero-content reveal">
+            <div class="hero-frame">
+                <div class="hero-crown"><i class="fas fa-crown"></i></div>
+                <div class="hero-tagline float">ערכים • משפט • קהילה</div>
+                <h1 class="hero-title">תפארתה של ערד</h1>
+                <p class="hero-subtitle">הנהגת תורה מחברת, דיינות מוסמכת ודלת פתוחה לכל תושב</p>
+            </div>
+        </div>
+        <div class="scroll-down" onclick="document.getElementById('timeline').scrollIntoView();">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="timeline-section" id="timeline">
+        <div class="section-title reveal">
+            <h2>תחנות של הנהגה</h2>
+            <div class="line"></div>
+            <p>מסע חייו של הרב אלדר לוי, משורשים בערד ועד להנהגה רוחנית</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="timeline-date">1980 - שורשים</span>
+                    <h3>ילדות וצמיחה בערד</h3>
+                    <p>לידה וילדות בנופי העיר ערד. חיבור טבעי ואותנטי למדבר, לקהילה המגוונת ולאנשי העיר מכל קצוות הקשת החברתית.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="timeline-date">שירות משמעותי</span>
+                    <h3>לוחם ומפקד בשריון</h3>
+                    <p>שירות צבאי מלא כלוחם ומפקד טנק בחטיבה 188. ספיגת ערכי רעות, מנהיגות תחת לחץ והקרבה למען כלל ישראל.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="timeline-date">הסמכה והוראה</span>
+                    <h3>הסמכת "ידין ידין"</h3>
+                    <p>שנים של עמל בתורה בבתי המדרש הגדולים, עד להסמכה העליונה ביותר לדיינות ופסיקת הלכה, לצד חיבור 12 ספרי עומק תורניים.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-content">
+                    <span class="timeline-date">הווה - 2026</span>
+                    <h3>חוזרים הביתה לערד</h3>
+                    <p>הקמת בית דין לממונות ומרכז גישור בעיר, והעמדת חזון מנהיגותי מאחד המחבר בין כל תושבי ערד באהבה ובהסכמה.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="weekly-pearl" id="weekly-pearl">
+        <div class="pearl-container reveal">
+            <div class="pearl-icon">
+                <i class="fas fa-book-open"></i>
+            </div>
+            <div class="pearl-content">
+                <h2>פנינת השבוע מהרב</h2>
+                <p>
+                    "העולם נבנה על חסד וחיבור. כשאנו מסתכלים על השכן שלנו בעין טובה, כשאנו מושיטים יד לעזרה בלי לחפש תמורה - אנו מביאים את השכינה לתוך רחובות העיר שלנו. התורה אינה רק ספר חוקים, היא תוכנית אב לאהבת אדם."
+                </p>
+                <div style="margin-top: 15px; color: var(--gold-light); font-weight: bold;">
+                    מתוך שיעור פרשת השבוע, קהילת ערד
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audio-section" id="audio-classes">
+        <div class="section-title reveal">
+            <h2>פודקאסט ושיעורי שמע</h2>
+            <div class="line"></div>
+            <p>האזינו לשיעורי תורה והלכה בכל זמן ובכל מקום</p>
+        </div>
+        <div class="audio-grid">
+            <div class="audio-card reveal">
+                <button class="play-btn"><i class="fas fa-play"></i></button>
+                <div class="audio-info">
+                    <h4>הלכות שבת - בורר (חלק א')</h4>
+                    <p>סדרת שיעורים מעשיים למשפחה</p>
+                </div>
+                <div class="audio-duration">18:45</div>
+            </div>
+            <div class="audio-card reveal" style="transition-delay: 0.1s;">
+                <button class="play-btn"><i class="fas fa-play"></i></button>
+                <div class="audio-info">
+                    <h4>פרשת השבוע - פרשת לך לך</h4>
+                    <p>מסע של אמונה ובניית זהות</p>
+                </div>
+                <div class="audio-duration">24:10</div>
+            </div>
+            <div class="audio-card reveal" style="transition-delay: 0.2s;">
+                <button class="play-btn"><i class="fas fa-play"></i></button>
+                <div class="audio-info">
+                    <h4>זוגיות לאור המקורות</h4>
+                    <p>כיצד לבנות בית יציב ושמח</p>
+                </div>
+                <div class="audio-duration">32:05</div>
+            </div>
+            <div class="audio-card reveal" style="transition-delay: 0.3s;">
+                <button class="play-btn"><i class="fas fa-play"></i></button>
+                <div class="audio-info">
+                    <h4>הכנה לחגים - סוכות</h4>
+                    <p>מהות החג והלכות ארבעת המינים</p>
+                </div>
+                <div class="audio-duration">28:30</div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;" class="reveal">
+            <a href="#" style="color: var(--deep-navy); font-weight: 800; font-size: 1.1rem; text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 5px; transition: 0.3s;">לכל השיעורים וההקלטות <i class="fas fa-arrow-left" style="margin-right: 5px;"></i></a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-title reveal">
+            <h2>מנהיגות של שירות</h2>
+            <div class="line"></div>
+            <p>מענה הלכתי, משפטי ורוחני לכל צרכי החיים במאור פנים</p>
+        </div>
+        <div class="grid">
+            <div class="card reveal" style="transition-delay: 0.1s;">
+                <i class="fas fa-gavel"></i>
+                <h3>בית דין לממונות</h3>
+                <p>יישוב סכסוכים, גישור ובוררויות עסקיות בדרכי נועם, במקצועיות ועל פי דין תורה צדק.</p>
+            </div>
+            <div class="card reveal" style="transition-delay: 0.2s;">
+                <i class="fas fa-heart"></i>
+                <h3>שלום בית ומשפחה</h3>
+                <p>ייעוץ זוגי ומשפחתי מבוסס ערכי נצח, הניתן מתוך הבנה עמוקה לאתגרי החיים המודרניים.</p>
+            </div>
+            <div class="card reveal" style="transition-delay: 0.3s;">
+                <i class="fas fa-scroll"></i>
+                <h3>מורה הוראה</h3>
+                <p>כתובת הלכתית זמינה, בהירה וקשובה בכל תחומי ההלכה היומיומית, שבת, כשרות וטהרה.</p>
+            </div>
+            <div class="card reveal" style="transition-delay: 0.4s;">
+                <i class="fas fa-university"></i>
+                <h3>חופות וקידושין</h3>
+                <p>עריכת טקסי נישואין וליווי הזוג באווירה רוחנית, מכבדת, משמחת ומאירת פנים.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="letter-section" id="about">
+        <div class="portrait-container reveal">
+            <img src="https://drive.google.com/uc?export=view&id=1V9wPZOO-ADYOmEAQ28NdBzFTaGlT9cBs" alt="הרב אלדר לוי, דיין ומורה הוראה">
+        </div>
+        <div class="letter-content reveal">
+            <h2 style="font-size: 3rem; color: var(--deep-navy); margin-bottom: 20px; text-shadow: 0 5px 15px rgba(0,0,0,0.05);">שורשים של תורה במדבר</h2>
+            <p>
+                תושבי ערד היקרים, <br>
+                בימים בהם אנו מחפשים עוגן ומשמעות, התורה היא המגדלור שלנו. <b>"דרכיה דרכי נועם וכל נתיבותיה שלום"</b>. 
+                משימתי היא להנגיש את חכמת הדורות לכל אחד ואחת מכם – בגובה העיניים, בשפה ברורה ובאהבת ישראל ללא תנאי.
+                <br><br>
+                כדיין ומורה הוראה שצמח כאן בנגב, אני מאמין שהחיבור בין אדם לחברו הוא הבסיס לכל חברה בריאה. בין אם מדובר בשאלה הלכתית, צורך בגישור או סתם אוזן קשבת – הדלת שלי, והלב שלי, פתוחים עבורכם.
+            </p>
+            
+            <div class="book-highlight">
+                <i class="fas fa-layer-group" style="font-size: 3rem; color: var(--gold);"></i>
+                <div>
+                    <h4 style="margin: 0 0 5px 0; color: var(--deep-navy); font-size: 1.4rem;">ארון הספרים של הרב</h4>
+                    <p style="margin: 0; font-size: 1.15rem; color: #555; line-height: 1.6;">מחברם של למעלה מ-12 ספרי הלכה, שו"ת ועומק תורני, המהווים אבן שואבת ללומדי התורה ודיינים בכל רחבי הארץ.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 35px; font-style: italic; font-weight: bold; font-size: 1.3rem; border-right: 4px solid var(--gold); padding-right: 20px; color: var(--deep-navy);">
+                בברכת התורה והארץ, <br>
+                <span style="font-size: 1.8rem; font-family: 'Frank Ruhl Libre'; color: var(--gold-dark);">הרב אלדר לוי שליט"א</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-title reveal">
+            <h2>מדברי הקהילה</h2>
+            <div class="line"></div>
+        </div>
+        <div class="testimo-grid">
+            <div class="testimo-card reveal" style="transition-delay: 0.1s;">
+                <i class="fas fa-quote-right"></i>
+                <div class="testimo-text">"הגענו לרב להתייעצות בנושא מורכב במשפחה. מעבר לידע ההלכתי, קיבלנו חיבוק, אוזן קשבת והכוונה ששינתה לנו את החיים. נכס לעיר ערד."</div>
+                <div class="testimo-author">משפחת כהן, תושבי העיר</div>
+            </div>
+            <div class="testimo-card reveal" style="transition-delay: 0.2s;">
+                <i class="fas fa-quote-right"></i>
+                <div class="testimo-text">"הרב חיתן אותנו בטקס שהיה בדיוק מה שחלמנו עליו - מרגש, אותנטי, מכבד את כולם ומחובר לשורשים שלנו. כל האורחים לא הפסיקו להחמיא."</div>
+                <div class="testimo-author">דנה ורון, זוג צעיר</div>
+            </div>
+            <div class="testimo-card reveal" style="transition-delay: 0.3s;">
+                <i class="fas fa-quote-right"></i>
+                <div class="testimo-text">"כאיש עסקים נקלעתי לסכסוך מול שותף. הגענו לבוררות בבית הדין של הרב לוי. המקצועיות, היושרה ודרכי הנועם הביאו אותנו לפשרה ששמרה עלינו כחברים."</div>
+                <div class="testimo-author">א. לוי, יזם</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-container" id="gallery">
+        <div class="section-title reveal" style="margin-bottom: 50px;">
+            <h2 style="color: white; text-shadow: 0 5px 15px rgba(0,0,0,0.5);">רגעים של חיבור</h2>
+            <div class="line"></div>
+        </div>
+        <div class="gallery-track">
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="https://drive.google.com/uc?export=view&id=1V8F9iLDmUPqa-4Kd0y4Z1KPrM3Rinm-N" alt="שיעור תורה וחינוך">
+                <div class="gallery-overlay">עמלה של תורה בבית המדרש</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="https://drive.google.com/uc?export=view&id=1YKLP-LZUFRDMVEP1_WLCHNrqo2opbT2g" alt="מפגש קהילתי וסיוע">
+                <div class="gallery-overlay">חיבור אותנטי לקהילה בערד</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="https://drive.google.com/uc?export=view&id=1Ra8ljgaDwBl-pJ6uSe0TJKu12gi1TqLa" alt="חופה וקידושין מרגשת">
+                <div class="gallery-overlay">שמחת חתן וכלה - בניין עדי עד</div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="https://drive.google.com/uc?export=view&id=15gyA31pgUoL3mcGF9pefNn32YHytAdzh" alt="נופי העיר ערד">
+                <div class="gallery-overlay">תפארת המדבר והיצירה</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Element -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <i class="fas fa-times lightbox-close"></i>
+        <img id="lightbox-img" src="" alt="תמונה מוגדלת" onclick="event.stopPropagation()">
+    </div>
+
+    <section class="faq-section" id="faq">
+        <div class="section-title reveal">
+            <h2>שאלות ותשובות</h2>
+            <div class="line"></div>
+            <p>מידע שימושי ותשובות לשאלות נפוצות של תושבי העיר</p>
+        </div>
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <button class="faq-question">איך פותחים תיק בבית הדין לממונות? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        פתיחת תיק מתבצעת בקלות באמצעות יצירת קשר בטופס באתר או בהודעת וואטסאפ למזכירות. לאחר הפנייה הראשונית, יישלח אליכם טופס פרטים דיגיטלי, ולאחריו יתואם מועד נוח לדיון ראשון. אנו מקפידים על תהליך נעים, מהיר ויעיל.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">האם הרב עורך חופות גם מחוץ לערד? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        בהחלט. הרב מלווה זוגות ועורך חופות בכל רחבי הארץ, תוך התאמה אישית של הטקס לרצון בני הזוג ובאווירה מרגשת ומאירת פנים. מומלץ לשריין תאריך מראש ככל הניתן.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">איך ניתן לתאם פגישה לייעוץ שלום בית? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        הפגישות מתקיימות בדיסקרטיות מלאה. ניתן לתאם פגישה דרך הוואטסאפ של המשרד. אנו מבינים את הרגישות, ולכן משתדלים לתת מענה ולקבוע פגישה בהקדם האפשרי, לרוב גם בשעות הערב.
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">האם השירותים והייעוץ כרוכים בתשלום? <i class="fas fa-chevron-down"></i></button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        ייעוץ ראשוני ושאלות הלכתיות ניתנים תמיד באהבה וללא כל עלות. שירותים מוסדרים כגון דיוני בוררות בבית הדין או ליווי אישי מתמשך כרוכים באגרת שירות סמלית, עליה תקבלו פירוט שקוף ומלא מראש.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 150px 5% 50px; background: transparent;" id="contact">
+        <div class="contact-box reveal">
+            <div class="contact-info">
+                <h3 style="font-size: 2.5rem; margin-top: 0; text-shadow: 0 2px 5px rgba(0,0,0,0.1);">הדלת פתוחה עבורכם</h3>
+                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 40px;">משרד הרב זמין לכל פנייה, שאלה הלכתית, בקשה לעצה או תיאום חופה. הכל בדיסקרטיות ובמאור פנים.</p>
+                <div style="font-size: 1.2rem; font-weight: 600;">
+                    <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-phone-alt" style="width: 30px; text-align: center;"></i> 052-821-9928</div>
+                    <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-envelope" style="width: 30px; text-align: center;"></i> Tifarteha@gmail.com</div>
+                    <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-map-marker-alt" style="width: 30px; text-align: center;"></i> רחוב התורה 1, ערד</div>
+                </div>
+                
+                <div style="margin-top: 50px;">
+                    <p style="font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">רוצים לקבל את פנינת השבוע ישירות לנייד?</p>
+                    <a href="https://wa.me/972528219928?text=אשמח%20להצטרף%20לקבוצת%20הווצאפ%20של%20הרב" class="whatsapp-join" target="_blank">
+                        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> הצטרפו לקבוצת העדכונים (שקטה)
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="margin-top: 0; color: var(--deep-navy); margin-bottom: 30px; font-size: 2rem;">השאירו פנייה למשרד הרב</h3>
+                <form onsubmit="submitForm(event)">
+                    <input type="text" id="name" placeholder="שם מלא" required>
+                    <input type="tel" id="phone" placeholder="טלפון לחזרה" required>
+                    <input type="email" id="email" placeholder="אימייל (לא חובה)">
+                    <textarea id="message" rows="5" placeholder="באיזה נושא נוכל לעזור? (ייעוץ / חופה / שאלת הלכה...)" required></textarea>
+                    <button type="submit" class="btn-submit">
+                        <span>שלח הודעה בצורה מאובטחת</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">הרב אלדר לוי</div>
+        <p style="font-size: 1.3rem; margin-bottom: 30px; color: #ccc;">הבחירה בערכים • הבחירה בלב • הבחירה בערד</p>
+        <div class="social-icons">
+            <a href="https://wa.me/972528219928" target="_blank" title="שלח הודעת וואטסאפ"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:Tifarteha@gmail.com" title="שלח דואל"><i class="fas fa-envelope"></i></a>
+            <a href="#" title="עקבו בפייסבוק"><i class="fab fa-facebook"></i></a>
+        </div>
+        <div style="margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+            <p style="opacity: 0.4; font-size: 0.95rem;">© 2026 כל הזכויות שמורות למטה הרב אלדר לוי שליט"א. הופק במיוחד עבור קהילת ערד.</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Parallax Effect for Hero & Navbar Glass Effect
+        window.addEventListener('scroll', () => {
+            const bg = document.getElementById('parallax-bg');
+            let offset = window.pageYOffset;
+            bg.style.transform = `scale(1.1) translateY(${offset * 0.4}px)`;
+            
+            const nav = document.getElementById('navbar');
+            if(offset > 50) {
+                nav.style.padding = "10px 40px";
+                nav.style.background = "rgba(255, 255, 255, 0.95)";
+                nav.style.boxShadow = "0 25px 50px rgba(0,0,0,0.1)";
+            } else {
+                nav.style.padding = "15px 40px";
+                nav.style.background = "rgba(255, 255, 255, 0.9)";
+                nav.style.boxShadow = "var(--shadow-lux)";
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Lightbox Functionality
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeLightbox();
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Form Submission Simulation
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> שולח...';
+            btn.style.opacity = '0.9';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> ההודעה נשלחה בהצלחה';
+                btn.style.background = '#25D366';
+                e.target.reset();
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'var(--deep-navy)';
+                    btn.style.opacity = '1';
+                }, 3000);
+            }, 1500);
+        }
+
+        // Scroll Progress Bar & Back to Top visibility
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollProgress").style.width = scrolled + "%";
+
+            const backToTopBtn = document.getElementById("backToTop");
+            if (winScroll > 800) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isActive = button.classList.contains('active');
+                
+                document.querySelectorAll('.faq-question').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.nextElementSibling.style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    button.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Audio play buttons interactions
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-play')) {
+                    icon.classList.replace('fa-play', 'fa-pause');
+                    this.style.background = 'var(--gold-gradient)';
+                    this.style.color = 'white';
+                    this.style.borderColor = 'transparent';
+                } else {
+                    icon.classList.replace('fa-pause', 'fa-play');
+                    this.style.background = 'linear-gradient(135deg, #fef0c3, #fdfbf7)';
+                    this.style.color = 'var(--deep-navy)';
+                    this.style.borderColor = 'var(--gold)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
