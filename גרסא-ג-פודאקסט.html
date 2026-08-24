@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>הרב אלדר לוי | מועמד לרבנות העיר ערד</title>
+    <meta name="description" content="האתר הרשמי של הרב אלדר לוי, מועמד לרבנות העיר ערד. דיין, לוחם שריון, מחבר ספרים, ומוביל חזון של רבנות מקרבת ומחברת. האזינו לשיעורים.">
+    <meta name="theme-color" content="#0a1f3a">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&family=Frank+Ruhl+Libre:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Palette: Deep Navy, Elegant Gold, Clean Whites */
+            --primary: #0a1f3a; 
+            --primary-light: #16365d;
+            --primary-dark: #051020;
+            --gold: #d4af37;
+            --gold-hover: #e8c659;
+            --gold-light: #fcf9f2;
+            --bg-body: #f4f6f9;
+            --bg-section: #ffffff;
+            --text-main: #2b3544;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            
+            /* Enhanced Shadows */
+            --shadow-sm: 0 2px 10px rgba(10, 31, 58, 0.05);
+            --shadow-md: 0 10px 30px rgba(10, 31, 58, 0.08);
+            --shadow-lg: 0 20px 40px rgba(10, 31, 58, 0.12);
+            --shadow-gold: 0 8px 25px rgba(212, 175, 55, 0.3);
+            --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.5);
+            
+            /* Border Radii */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            
+            --transition-fast: all 0.2s ease;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: var(--radius-full); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        /* Reset & Base */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .serif {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; height: auto; display: block; }
+        button, input, textarea { font-family: inherit; }
+        button { cursor: pointer; border: none; background: none; }
+
+        /* Utilities */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-padding { padding: 6rem 0; }
+        @media (min-width: 768px) { .section-padding { padding: 8rem 0; } }
+        .text-center { text-align: center; }
+        
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 0.75rem; padding: 1rem 2.5rem;
+            font-size: 1.125rem; font-weight: 600;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+            text-align: center; position: relative; overflow: hidden;
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+            color: var(--primary-dark);
+            box-shadow: var(--shadow-gold);
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-light);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary); color: var(--white);
+            border-color: var(--primary); transform: translateY(-2px);
+        }
+
+        /* Section Headers */
+        .section-header { text-align: center; margin-bottom: 4rem; position: relative; }
+        
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem; position: relative; display: inline-block;
+        }
+        .section-title::after {
+            content: ''; position: absolute;
+            bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            border-radius: var(--radius-full);
+        }
+        .section-title-white { color: var(--white); }
+        
+        .section-subtitle {
+            font-size: 1.2rem; color: var(--text-muted);
+            max-width: 700px; margin: 1.5rem auto 0; font-weight: 400;
+        }
+        .section-subtitle-white { color: rgba(255,255,255,0.8); }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: transparent;
+            z-index: 1000; padding: 1.5rem 0;
+            transition: var(--transition);
+        }
+        header.scrolled {
+            background: rgba(10, 31, 58, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            color: var(--white); font-size: 1.75rem; font-weight: 700;
+            display: flex; align-items: center; gap: 0.75rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .logo i { color: var(--gold); font-size: 1.5rem; }
+
+        .desktop-nav { display: none; gap: 2.5rem; }
+        @media (min-width: 992px) { .desktop-nav { display: flex; } }
+        
+        .desktop-nav a {
+            color: rgba(255,255,255,0.9); font-weight: 500; font-size: 1.1rem;
+            position: relative; padding: 0.5rem 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .desktop-nav a:hover, .desktop-nav a.active { color: var(--gold); text-shadow: none; }
+        .desktop-nav a::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 0; height: 2px; background: var(--gold); transition: var(--transition);
+        }
+        .desktop-nav a:hover::after, .desktop-nav a.active::after { width: 100%; }
+
+        .menu-toggle {
+            display: block; color: var(--white); font-size: 1.75rem;
+            padding: 0.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        @media (min-width: 992px) { .menu-toggle { display: none; } }
+
+        /* Mobile Nav */
+        .mobile-nav-wrapper {
+            position: fixed; top: 0; right: -100%;
+            width: 100%; height: 100vh;
+            background: rgba(5, 16, 32, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1001; opacity: 0; visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        .mobile-nav-wrapper.open { opacity: 1; visibility: visible; right: 0; }
+        
+        .mobile-nav {
+            position: absolute; top: 0; right: -100%;
+            width: 85%; max-width: 400px; height: 100%;
+            background: var(--primary);
+            padding: 6rem 2rem 3rem;
+            display: flex; flex-direction: column; gap: 0.5rem;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+        }
+        .mobile-nav-wrapper.open .mobile-nav { right: 0; }
+
+        .close-menu {
+            position: absolute; top: 1.5rem; left: 1.5rem;
+            color: var(--white); font-size: 2rem;
+            transition: var(--transition-fast);
+        }
+        .close-menu:hover { color: var(--gold); transform: rotate(90deg); }
+        
+        .mobile-nav a {
+            color: rgba(255,255,255,0.9); font-size: 1.3rem; font-weight: 500;
+            padding: 1.25rem 1rem; border-radius: var(--radius-md);
+            display: flex; align-items: center; gap: 1rem;
+            transition: var(--transition-fast);
+        }
+        .mobile-nav a i { color: var(--gold); width: 24px; text-align: center; font-size: 1.2rem; }
+        .mobile-nav a:hover { background: rgba(255,255,255,0.05); color: var(--gold); transform: translateX(-10px); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative; min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding-top: 5rem; overflow: hidden;
+        }
+        
+        /* Ken Burns Background Effect */
+        .hero-bg {
+            position: absolute; inset: -5%; width: 110%; height: 110%;
+            background: url('https://drive.google.com/thumbnail?id=1-n8RY9mX0jsxlf_-FETgJrr0yRXYbSc6&sz=w1600') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+            animation: kenBurns 20s ease-out infinite alternate;
+        }
+        @keyframes kenBurns { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
+        
+        /* Gradient Overlay */
+        .hero-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(135deg, rgba(10, 31, 58, 0.9) 0%, rgba(5, 16, 32, 0.7) 100%);
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 900px; padding: 0 1.5rem; text-align: center;
+            opacity: 0; transform: translateY(40px);
+            animation: fadeUpHero 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+        }
+
+        .hero-pretitle {
+            font-size: 1.25rem; color: var(--gold); font-weight: 600;
+            margin-bottom: 1.5rem; letter-spacing: 3px; display: inline-block;
+            background: rgba(0,0,0,0.3); padding: 0.5rem 1.5rem; border-radius: var(--radius-full);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            line-height: 1.05; margin-bottom: 1.5rem;
+            color: var(--white); text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: rgba(255,255,255,0.95); font-weight: 400;
+            margin-bottom: 3rem; max-width: 700px; margin-inline: auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeUpHero { to { opacity: 1; transform: translateY(0); } }
+
+        /* --- STATS BADGES (Overlap Hero) --- */
+        .badges-wrapper { position: relative; z-index: 10; margin-top: -6rem; padding: 0 1rem; }
+        .badges-grid {
+            max-width: 1100px; margin: 0 auto;
+            background: var(--bg-section); border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: grid; grid-template-columns: 1fr;
+            padding: 1rem; gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .badges-wrapper { margin-top: -5rem; }
+            .badges-grid { grid-template-columns: repeat(3, 1fr); padding: 2rem; gap: 2rem; }
+        }
+
+        .badge-item {
+            text-align: center; padding: 2rem 1.5rem;
+            border-radius: var(--radius-md); transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .badge-item:hover {
+            transform: translateY(-8px); background: var(--bg-body);
+            border-color: var(--border-color); box-shadow: var(--shadow-sm);
+        }
+        
+        .badge-icon {
+            width: 80px; height: 80px; margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--gold-light), #fff);
+            color: var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+            transition: var(--transition);
+        }
+        .badge-item:hover .badge-icon { transform: scale(1.1) rotate(5deg); }
+        
+        .badge-item h3 { font-size: 1.4rem; margin-bottom: 0.75rem; color: var(--primary); }
+        .badge-item p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin:0; }
+
+        /* --- ABOUT SECTION --- */
+        .about-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: center; }
+        @media (min-width: 992px) { .about-grid { grid-template-columns: 1.1fr 0.9fr; gap: 5rem; } }
+
+        .about-text p {
+            font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--text-main);
+            position: relative; padding-right: 1.5rem;
+        }
+        .about-text p::before {
+            content: ''; position: absolute; right: 0; top: 0.5rem;
+            width: 4px; height: calc(100% - 1rem); background: var(--gold); border-radius: 2px;
+            opacity: 0.3;
+        }
+        .about-text strong { color: var(--primary); font-weight: 700; }
+        
+        .about-image {
+            position: relative; border-radius: var(--radius-lg);
+            z-index: 1; margin: 0 auto;
+        }
+        .about-image::before {
+            content: ''; position: absolute; inset: -15px 15px 15px -15px;
+            border: 3px solid var(--gold); border-radius: var(--radius-lg);
+            z-index: -1; transition: var(--transition);
+        }
+        .about-image:hover::before { inset: -5px 5px 5px -5px; }
+        
+        .about-image img {
+            width: 100%; height: auto; object-fit: cover;
+            border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+        }
+
+        /* --- VISION SECTION --- */
+        .vision-section { background: var(--bg-section); position: relative; }
+        .vision-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+        @media (min-width: 768px) { .vision-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .vision-card {
+            background: var(--bg-body); border-radius: var(--radius-lg);
+            padding: 3.5rem 2.5rem; text-align: center;
+            box-shadow: var(--shadow-sm); border: 1px solid var(--border-color);
+            transition: var(--transition); height: 100%;
+            position: relative; overflow: hidden; z-index: 1;
+        }
+        .vision-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(212,175,55,0.05) 0%, transparent 100%);
+            z-index: -1; opacity: 0; transition: var(--transition);
+        }
+        .vision-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 5px; background: var(--gold);
+            transform: translateY(100%); transition: var(--transition);
+        }
+        .vision-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-lg); background: var(--bg-section); }
+        .vision-card:hover::before { opacity: 1; }
+        .vision-card:hover::after { transform: translateY(0); }
+        
+        .vision-card-icon {
+            font-size: 3rem; color: var(--primary); margin-bottom: 2rem;
+            display: inline-block; transition: var(--transition);
+        }
+        .vision-card:hover .vision-card-icon { color: var(--gold); transform: scale(1.1); }
+        
+        .vision-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary-dark); }
+        .vision-card p { color: var(--text-muted); font-size: 1.05rem; }
+
+        /* --- PODCAST SECTION (NEW & UPGRADED) --- */
+        .podcast-section {
+            background: url('https://images.unsplash.com/photo-1519834785169-98be25ec3f84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+            position: relative; color: var(--white);
+        }
+        .podcast-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,31,58,0.95), rgba(5,16,32,0.9));
+        }
+
+        .podcast-grid {
+            display: grid; grid-template-columns: 1fr; gap: 2rem;
+            position: relative; z-index: 2;
+        }
+        @media (min-width: 768px) { .podcast-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); } }
+
+        .podcast-card {
+            padding: 2rem; border-radius: var(--radius-lg);
+            transition: var(--transition);
+            display: flex; flex-direction: column; gap: 1.5rem;
+        }
+        .podcast-card:hover { transform: translateY(-10px); border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+        
+        .podcast-card-header { display: flex; align-items: center; gap: 1.25rem; }
+        .podcast-icon {
+            width: 60px; height: 60px; min-width: 60px;
+            background: linear-gradient(135deg, var(--gold), #fff); color: var(--primary-dark);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        .podcast-info h4 { font-size: 1.25rem; color: var(--white); margin-bottom: 0.25rem; }
+        .podcast-info span { font-size: 0.95rem; color: var(--gold-light); opacity: 0.8; }
+
+        /* Audio Player Styling */
+        audio { width: 100%; height: 45px; outline: none; border-radius: var(--radius-full); }
+        audio::-webkit-media-controls-panel { background-color: rgba(255,255,255,0.95); }
+        audio::-webkit-media-controls-play-button, audio::-webkit-media-controls-mute-button { background-color: var(--gold-light); border-radius: 50%; }
+
+        /* --- BOOKS SECTION --- */
+        .books-wrapper {
+            background: linear-gradient(135deg, #fff, var(--gold-light));
+            border-radius: var(--radius-lg); padding: 5rem 3rem; text-align: center;
+            box-shadow: var(--shadow-md); border: 1px solid rgba(212,175,55,0.2);
+        }
+        .books-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; margin-top: 2.5rem; }
+        .book-tag {
+            background: var(--white); color: var(--primary-dark);
+            padding: 1rem 2rem; border-radius: var(--radius-full);
+            font-weight: 600; font-size: 1.125rem; box-shadow: var(--shadow-sm);
+            transition: var(--transition); border: 1px solid var(--border-color);
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .book-tag:hover { background: var(--primary); color: var(--gold); transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+        /* --- GALLERY --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .gallery-item {
+            position: relative; border-radius: var(--radius-md); overflow: hidden;
+            aspect-ratio: 4/3; box-shadow: var(--shadow-sm); cursor: pointer;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(10,31,58,0.9) 0%, transparent 60%);
+            display: flex; align-items: flex-end; padding: 1.5rem;
+            opacity: 0; transition: var(--transition);
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay h4 { color: var(--white); font-size: 1.2rem; transform: translateY(20px); transition: var(--transition); }
+        .gallery-item:hover .gallery-overlay h4 { transform: translateY(0); }
+
+        /* Lightbox Modal */
+        .lightbox {
+            position: fixed; inset: 0; background: rgba(5, 16, 32, 0.95);
+            backdrop-filter: blur(5px); z-index: 2000;
+            display: none; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: var(--radius-sm); box-shadow: 0 0 50px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 2rem; right: 2rem; color: white; font-size: 2.5rem; cursor: pointer; transition: 0.2s; }
+        .lightbox-close:hover { color: var(--gold); transform: scale(1.1); }
+
+        /* --- TESTIMONIALS (NEW) --- */
+        .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+        
+        .testimonial-card {
+            background: var(--bg-section); padding: 3rem 2rem 2rem;
+            border-radius: var(--radius-lg); box-shadow: var(--shadow-md);
+            position: relative; border-top: 4px solid var(--gold);
+        }
+        .quote-icon {
+            position: absolute; top: -15px; right: 2rem;
+            width: 40px; height: 40px; background: var(--gold); color: white;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem;
+        }
+        .testimonial-text { font-size: 1.15rem; font-style: italic; color: var(--text-main); margin-bottom: 1.5rem; }
+        .testimonial-author { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+        .testimonial-role { font-size: 0.9rem; color: var(--text-muted); }
+
+        .certs-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 3rem; }
+
+        /* --- FAQ SECTION --- */
+        .faq-wrapper { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--bg-section); border-radius: var(--radius-md);
+            margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);
+            overflow: hidden; transition: var(--transition); border: 1px solid var(--border-color);
+        }
+        .faq-item:hover { box-shadow: var(--shadow-md); }
+        
+        .faq-question {
+            width: 100%; text-align: right; padding: 1.75rem 2rem;
+            font-size: 1.2rem; font-weight: 700; color: var(--primary-dark);
+            display: flex; justify-content: space-between; align-items: center;
+            background: transparent; transition: var(--transition-fast);
+        }
+        .faq-question:hover { color: var(--primary); background: var(--bg-body); }
+        .faq-question i { color: var(--gold); transition: transform 0.4s ease; font-size: 1.25rem; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-item.active .faq-question { background: var(--primary-light); color: white; }
+        
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background: var(--bg-body); }
+        .faq-answer-inner { padding: 2rem; color: var(--text-main); font-size: 1.1rem; border-top: 1px solid var(--border-color); }
+
+        /* --- CONTACT/JOIN FORM (NEW) --- */
+        .join-section { background: var(--primary-light); color: white; border-radius: var(--radius-lg); padding: 4rem 2rem; margin: 4rem auto; max-width: 900px; text-align: center; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;}
+        .join-section::after { content:'\f0c0'; font-family:'FontAwesome'; position:absolute; right:-20px; bottom:-40px; font-size: 15rem; color:rgba(255,255,255,0.03); transform: rotate(-15deg); pointer-events: none;}
+        .join-form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: 2rem auto 0; position: relative; z-index: 2; }
+        @media (min-width: 576px) { .join-form { flex-direction: row; } }
+        .join-form input { flex: 1; padding: 1rem 1.5rem; border-radius: var(--radius-full); border: none; font-size: 1rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); outline: none; transition: 0.3s;}
+        .join-form input:focus { box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.5); }
+        .join-form button { white-space: nowrap; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--primary-dark); color: var(--text-muted); padding: 6rem 0 2rem; text-align: center; }
+        .footer-logo { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; display: block; }
+        .footer-desc { font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 3rem; }
+        
+        .footer-contact { display: flex; flex-direction: column; gap: 1.5rem; align-items: center; justify-content: center; margin-bottom: 4rem; }
+        @media (min-width: 576px) { .footer-contact { flex-direction: row; gap: 3rem; } }
+        
+        .contact-link {
+            display: flex; align-items: center; justify-content: center; gap: 1rem;
+            color: white; font-size: 1.25rem; font-weight: 500;
+            background: rgba(255,255,255,0.05); padding: 1rem 2rem;
+            border-radius: var(--radius-full); transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 300px;
+        }
+        .contact-link i { color: var(--gold); font-size: 1.5rem; }
+        .contact-link:hover { background: var(--gold); color: var(--primary-dark); border-color: var(--gold); transform: translateY(-3px); }
+        .contact-link:hover i { color: var(--primary-dark); }
+        
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.95rem; }
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed; bottom: 2rem; left: 2rem;
+            background-color: #25D366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+            z-index: 99; transition: var(--transition);
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6); }
+        @media (max-width: 767px) { .whatsapp-float { bottom: 1.5rem; left: 1.5rem; width: 55px; height: 55px; font-size: 1.8rem; } }
+
+        /* --- ANIMATIONS (Reveal on Scroll) --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+    <div class="container nav-container">
+        <a href="#home" class="logo">
+            <i class="fa-solid fa-menorah"></i> הרב אלדר לוי
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="desktop-nav">
+            <a href="#about">אודות</a>
+            <a href="#vision">חזון</a>
+            <a href="#podcast">שיעורים</a>
+            <a href="#books">יצירה ועשייה</a>
+            <a href="#faq">שאלות</a>
+            <a href="#contact" style="color: var(--gold);">צור קשר</a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menu-btn" aria-label="פתח תפריט">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Navigation Overlay -->
+<div class="mobile-nav-wrapper" id="mobile-menu">
+    <nav class="mobile-nav">
+        <button class="close-menu" id="close-btn" aria-label="סגור תפריט"><i class="fa-solid fa-xmark"></i></button>
+        <div style="margin-bottom: 3rem; color: var(--gold); font-size: 1.8rem; font-family: 'Frank Ruhl Libre'; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+            <i class="fa-solid fa-menorah"></i> תפריט
+        </div>
+        <a href="#about" class="mobile-link"><i class="fa-solid fa-user"></i> אודות</a>
+        <a href="#vision" class="mobile-link"><i class="fa-solid fa-eye"></i> חזון</a>
+        <a href="#podcast" class="mobile-link"><i class="fa-solid fa-microphone-lines"></i> שיעורים והסכתים</a>
+        <a href="#books" class="mobile-link"><i class="fa-solid fa-book"></i> יצירה תורנית</a>
+        <a href="#faq" class="mobile-link"><i class="fa-solid fa-circle-question"></i> שאלות ותשובות</a>
+        <a href="#contact" class="mobile-link" style="color: var(--gold); margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;"><i class="fa-solid fa-paper-plane"></i> הצטרפו למסע</a>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <span class="hero-pretitle">מועמד לרבנות העיר ערד</span>
+        <h1 class="hero-title">הרב אלדר לוי</h1>
+        <p class="hero-subtitle">דיין מוסמך "ידין ידין", מפקד בשריון ובן העיר.<br>מנהיגות רבנית של חיבור, מסורת וקהילה, למען כל תושבי ערד.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#vision" class="btn btn-gold">
+                התוכנית לרבנות <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="#podcast" class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.5);">
+                האזינו לשיעורים <i class="fa-solid fa-headphones"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Badges -->
+<div class="badges-wrapper container">
+    <div class="badges-grid reveal">
+        <div class="badge-item">
+            <div class="badge-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3>דיין "ידין ידין"</h3>
+            <p>הסמכה עליונה לדיינות מטעם הרבנות הראשית, המאפשרת פתרון סכסוכים מורכבים בדרכי נועם.</p>
+        </div>
+        <div class="badge-item">
+            <div class="badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>לוחם ומפקד</h3>
+            <p>שירות קרבי משמעותי כמפקד טנק בשריון. מכיר מקרוב את החיבור בין כל חלקי העם.</p>
+        </div>
+        <div class="badge-item">
+            <div class="badge-icon"><i class="fa-solid fa-house-chimney"></i></div>
+            <h3>שורשים בערד</h3>
+            <p>יליד העיר, בוגר מוסדות החינוך המקומיים, מחובר בלב ובנפש לקהילה ולצורכיה הייחודיים.</p>
+        </div>
+    </div>
+</div>
+
+<!-- About Section -->
+<section id="about" class="section-padding bg-body">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title">הבן שחוזר הביתה להנהיג</h2>
+            <p class="section-subtitle">מסע של שליחות - מבית הספר המקומי ועד לכס הדיינות, תמיד עם הפנים לקהילה.</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="about-text reveal delay-100">
+                <p><strong>ערד אינה רק עיר עבורי, היא תבנית נוף מולדתי.</strong> כאן גדלתי, התחנכתי, וכאן ספגתי את ערכי הרעות ואהבת הארץ משכניי וחבריי.</p>
+                <p>המסלול שלי משלב את הפסיפס המיוחד של החברה הישראלית: משירות קרבי כמפקד טנק תחת אש, שבו למדתי שמדים מוחקים כל הבדל בין דתי לחילוני, ועד לעמל תורה מעמיק בבתי המדרש שהוביל להסמכה הגבוהה ביותר לרבנות ולדיינות ("ידין ידין").</p>
+                <p>אני מגיע לתפקיד מתוך אהבה עמוקה לתושבי העיר. אמונתי היא שרבנות צריכה להיות גשר ולא חומה. רבנות שמאירה פנים, מנגישה את המסורת בדרכי נועם, ומעניקה שירות מצוין, מודרני ומכבד לכל תושב ותושבת, ללא הבדל מגזר או רקע.</p>
+            </div>
+            <div class="about-image reveal delay-200">
+                <img src="https://drive.google.com/thumbnail?id=14d9ipjFrbmOhx2PcBTrZ2Lk7HY9Mkt_2&sz=w800" alt="הרב אלדר לוי במדים" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision Section -->
+<section id="vision" class="section-padding vision-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title">החזון לרבנות עיר מודרנית</h2>
+            <p class="section-subtitle">תוכנית עבודה מעשית לרבנות מתקדמת, נגישה ומחברת, המעניקה שירות בגובה העיניים.</p>
+        </div>
+
+        <div class="vision-grid">
+            <div class="vision-card reveal delay-100">
+                <i class="fa-solid fa-mobile-screen vision-card-icon"></i>
+                <h3>רבנות בדיגיטל</h3>
+                <p>הנגשת שירותי הדת – רישום נישואין, תעודות רווקות ומערך כשרות – דרך פלטפורמות דיגיטליות חכמות לייעול השירות וחסכון זמן יקר לכל תושב.</p>
+            </div>
+            <div class="vision-card reveal delay-200">
+                <i class="fa-solid fa-hands-holding-child vision-card-icon"></i>
+                <h3>מרכז "שלום בית" עירוני</h3>
+                <p>הקמת מערך ייעוץ זוגי וגישור חינמי ודיסקרטי. רתימת הניסיון המקצועי כדיין לפתרון מחלוקות בדרכי נועם ושמירה על שלמות המשפחה בקהילה.</p>
+            </div>
+            <div class="vision-card reveal delay-300">
+                <i class="fa-solid fa-star-of-david vision-card-icon"></i>
+                <h3>זהות ציונית ונוער</h3>
+                <p>חיזוק הקשר הטבעי בין מורשת ישראל לערכי הציונות. הובלת פעילות מעצימה בבתי הספר ועידוד בני הנוער לשירות משמעותי ותורם לחברה.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Podcast Section (Upgraded) -->
+<section id="podcast" class="section-padding podcast-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title section-title-white">שיעורים והסכתים</h2>
+            <p class="section-subtitle section-subtitle-white">האזינו לשיעורי תורה, הלכה ומחשבה מפי הרב אלדר לוי. מאגר מתעדכן לכל דורש.</p>
+        </div>
+
+        <div class="podcast-grid">
+            <!-- Audio Track 1 -->
+            <div class="podcast-card glass reveal delay-100">
+                <div class="podcast-card-header">
+                    <div class="podcast-icon"><i class="fa-solid fa-play"></i></div>
+                    <div class="podcast-info">
+                        <h4>הכנה לחגים: חודש אלול</h4>
+                        <span>י"ב אלול תשפ"ג • 45 דק'</span>
+                    </div>
+                </div>
+                <audio controls preload="metadata">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    הדפדפן שלך אינו תומך בנגן שמע.
+                </audio>
+            </div>
+
+            <!-- Audio Track 2 -->
+            <div class="podcast-card glass reveal delay-200">
+                <div class="podcast-card-header">
+                    <div class="podcast-icon"><i class="fa-solid fa-play"></i></div>
+                    <div class="podcast-info">
+                        <h4>פרשת יתרו: קבלת התורה</h4>
+                        <span>שיעור בעיון • 32 דק'</span>
+                    </div>
+                </div>
+                <audio controls preload="metadata">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                    הדפדפן שלך אינו תומך בנגן שמע.
+                </audio>
+            </div>
+
+            <!-- Audio Track 3 -->
+            <div class="podcast-card glass reveal delay-300">
+                <div class="podcast-card-header">
+                    <div class="podcast-icon"><i class="fa-solid fa-play"></i></div>
+                    <div class="podcast-info">
+                        <h4>בין אדם לחברו: הלכות והליכות</h4>
+                        <span>סדרת המידות • 50 דק'</span>
+                    </div>
+                </div>
+                <audio controls preload="metadata">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+                    הדפדפן שלך אינו תומך בנגן שמע.
+                </audio>
+            </div>
+        </div>
+        <p class="text-center" style="margin-top: 3rem; color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+            * קבצי שמע לדוגמה. המערכת מוכנה להטמעת הקבצים המקוריים בקלות.
+        </p>
+    </div>
+</section>
+
+<!-- Books & Testimonials Section -->
+<section id="books" class="section-padding bg-body">
+    <div class="container">
+        <!-- Books -->
+        <div class="books-wrapper reveal">
+            <h2 class="section-title" style="font-size: 2.5rem;">יצירה תורנית ענפה</h2>
+            <p class="section-subtitle" style="color: var(--text-main);">במהלך שנות לימודיי וכהונתי כדיין, זכיתי לחבר מספר ספרי הלכה ומשפט שזכו להסכמות מגדולי פוסקי הדור.</p>
+            <div class="books-tags">
+                <span class="book-tag"><i class="fa-solid fa-book-tanakh" style="color: var(--gold);"></i> עולה מן המדבר</span>
+                <span class="book-tag"><i class="fa-solid fa-book-tanakh" style="color: var(--gold);"></i> ברית תפארתך</span>
+                <span class="book-tag"><i class="fa-solid fa-book-tanakh" style="color: var(--gold);"></i> זהרי נדה</span>
+                <span class="book-tag"><i class="fa-solid fa-book-tanakh" style="color: var(--gold);"></i> יורו משפטיך</span>
+            </div>
+        </div>
+
+        <!-- NEW: Community Voices (Social Proof) -->
+        <div class="section-header reveal" style="margin-top: 7rem;">
+            <h2 class="section-title">קולות מהקהילה</h2>
+            <p class="section-subtitle">תמיכה רחבה מכל גווני הקשת בעיר ערד ומחוצה לה.</p>
+        </div>
+        
+        <div class="testimonials-grid reveal">
+            <div class="testimonial-card delay-100">
+                <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                <p class="testimonial-text">"הרב אלדר מייצג את הדור החדש של הרבנות. הוא מבין את השטח, מדבר בגובה העיניים, והכי חשוב - מחפש תמיד איך לחבר ולא איך להפריד. זה בדיוק מה שהעיר שלנו צריכה עכשיו."</p>
+                <div class="testimonial-author">יצחק כהן</div>
+                <div class="testimonial-role">תושב העיר ערד, סא"ל במיל'</div>
+            </div>
+            <div class="testimonial-card delay-200">
+                <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                <p class="testimonial-text">"כמי שליוותה זוגות רבים, תפיסת הגישור והשלום בית של הרב היא מצרך נדיר. הידע העצום שלו כדיין יחד עם הרגישות האנושית הופכים אותו למועמד הראוי ביותר."</p>
+                <div class="testimonial-author">מיכל לוי</div>
+                <div class="testimonial-role">יועצת זוגית ומשפחתית</div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="section-header reveal" style="margin-top: 7rem;">
+            <h2 class="section-title">רגעים של עשייה</h2>
+            <p class="section-subtitle">מבית המדרש, לשטח ולקהילה - חיבור אמיתי לעם. <br><small>(לחצו על התמונות להגדלה)</small></p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item reveal delay-100">
+                <img src="https://drive.google.com/thumbnail?id=1-6PMn8TEq-PYNK7nGIKo_ZLTIAgG5uhB&sz=w800" alt="עם הראשון לציון" loading="lazy">
+                <div class="gallery-overlay"><h4>התייעצות עם הראשון לציון</h4></div>
+            </div>
+            <div class="gallery-item reveal delay-200">
+                <img src="https://drive.google.com/thumbnail?id=175UZJkufzUzIk94LAyv5ELjWbXe38Jtp&sz=w800" alt="שירות מילואים" loading="lazy">
+                <div class="gallery-overlay"><h4>במילואים בשריון - מחובר לשטח</h4></div>
+            </div>
+            <div class="gallery-item reveal delay-300">
+                <img src="https://drive.google.com/thumbnail?id=1ulXSB3ypQc8fnMu8RfhcigpDRPFgWRo3&sz=w800" alt="בבית המדרש" loading="lazy">
+                <div class="gallery-overlay"><h4>עמל התורה בבית המדרש</h4></div>
+            </div>
+            <div class="gallery-item reveal delay-100">
+                <img src="https://drive.google.com/thumbnail?id=1H9_BPOff-7ikOVe9imqeMx57UwQivHFc&sz=w800" alt="מפגש תושבים" loading="lazy">
+                <div class="gallery-overlay"><h4>חיבור חם עם קהילת ערד</h4></div>
+            </div>
+        </div>
+
+        <!-- Certificates -->
+        <div class="certs-grid reveal" style="margin-top: 4rem;">
+            <a href="https://drive.google.com/file/d/1SW2vdBkFStO2sgsYimJPRRikDW0yzPBh/view?usp=sharing" target="_blank" class="btn btn-outline"><i class="fa-solid fa-scroll"></i> תעודת כושר דיינות</a>
+            <a href="https://drive.google.com/file/d/1VAP-VKkMs8_kBZjJACOqsn3eaZsKU6H3/view?usp=sharing" target="_blank" class="btn btn-outline"><i class="fa-solid fa-stamp"></i> הסכמת הראשון לציון</a>
+            <a href="https://drive.google.com/file/d/1_5XeRXMjrWoXpx2LrWcjMW-UVSQMtJlY/view?usp=sharing" target="_blank" class="btn btn-outline"><i class="fa-solid fa-gavel"></i> אישור בית משפט</a>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal Container -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="תמונה מוגדלת">
+</div>
+
+<!-- FAQ Section -->
+<section id="faq" class="section-padding bg-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title">שאלות ותשובות</h2>
+            <p class="section-subtitle">הרב עונה ישירות לשאלות תושבי העיר בשקיפות מלאה ובגובה העיניים.</p>
+        </div>
+
+        <div class="faq-wrapper reveal">
+            <div class="faq-item">
+                <button class="faq-question">
+                    כיצד הרב רואה את היחסים בין דתיים לחילונים בערד?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        "כמי שגדל כאן ולמד במוסדות החינוך הממלכתיים, אני לא רואה חומות אלא אחים ושכנים. תפקיד הרב הוא למצוא את המאחד, לכבד כל אדם ואת אורח חייו, ולהפוך את מוסד הרבנות לגורם מאיר ומקרב - לעולם לא מפלג או כופה."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    האם תהיה קבלת קהל מסודרת לתושבים?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        "בהחלט. בניגוד לעבר, דלתי תהיה פתוחה באופן קבוע עם שעות קבלת קהל מוגדרות וידועות מראש. כל תושב יוכל להגיע לייעוץ אישי, לברכה, לשאלות הלכתיות או לייעוץ זוגי, בדיסקרטיות מוחלטת ובמאור פנים."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    מהי המשמעות של 'כושר דיינות ידין ידין'?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        "זוהי ההסמכה ההלכתית הגבוהה ביותר שמעניקה הרבנות הראשית לישראל (המסמיכה לכהן כדיין בבית דין רבני). הסמכה זו דורשת שנים רבות של מבחנים ומעידה על בקיאות נרחבת בדיני ממונות ומשפחה. זהו יתרון עצום המאפשר לרב העיר לסייע בפתרון סכסוכים מורכבים בקהילה במקצועיות עליונה."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join the Campaign Form (NEW) -->
+        <div class="join-section reveal delay-200">
+            <h2 class="section-title section-title-white" style="font-size: 2.2rem;">הצטרפו למסע לשינוי</h2>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">השאירו פרטים להבעת תמיכה, התנדבות בקמפיין או קבלת עדכונים מהרב.</p>
+            <form class="join-form" id="joinForm">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="tel" placeholder="מספר טלפון" required>
+                <button type="submit" class="btn btn-gold">אני מצטרף/ת <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+            <div id="formSuccess" style="display: none; margin-top: 1.5rem; color: var(--gold-light); font-weight: bold; font-size: 1.2rem;">
+                <i class="fa-solid fa-check-circle"></i> תודה רבה! פרטיך התקבלו בהצלחה.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+    <div class="container reveal">
+        <span class="footer-logo serif"><i class="fa-solid fa-menorah"></i> הרב אלדר לוי</span>
+        <p class="footer-desc">מועמד לרבנות העיר ערד - מנהיגות של אמת, שליחות ואחדות.</p>
+        
+        <div class="footer-contact">
+            <a href="tel:0528219928" class="contact-link">
+                <i class="fa-solid fa-phone"></i> 052-821-9928
+            </a>
+            <a href="mailto:Tifarteha@gmail.com" class="contact-link">
+                <i class="fa-solid fa-envelope"></i> Tifarteha@gmail.com
+            </a>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 כל הזכויות שמורות למטה הרב אלדר לוי | קמפיין רבנות ערד</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/972528219928" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="שלח הודעת וואטסאפ">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // --- Sticky Header with Glassmorphism ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { header.classList.add('scrolled'); } 
+            else { header.classList.remove('scrolled'); }
+        });
+
+        // --- Mobile Menu Handling ---
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu(show) {
+            if(show) {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) toggleMenu(false); });
+        mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+        // --- FAQ Accordion Logic ---
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close others
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                // Open clicked if it wasn't open
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // --- Lightbox Logic for Gallery ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                lightbox.classList.add('active');
+                lightboxImg.src = e.target.src;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => { lightboxImg.src = ''; }, 300);
+        }
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg) closeLightbox(); });
+
+        // --- Scroll Reveal Animation (Intersection Observer) ---
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- Smooth Scrolling with Offset ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({ top: targetPosition - headerHeight, behavior: "smooth" });
+                }
+            });
+        });
+        
+        // --- Audio Players Auto-Pause ---
+        const audios = document.querySelectorAll('audio');
+        audios.forEach(audio => {
+            audio.addEventListener('play', () => {
+                audios.forEach(otherAudio => { if(otherAudio !== audio) otherAudio.pause(); });
+            });
+        });
+
+        // --- Mock Form Submission ---
+        const joinForm = document.getElementById('joinForm');
+        const formSuccess = document.getElementById('formSuccess');
+        if(joinForm) {
+            joinForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                joinForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
